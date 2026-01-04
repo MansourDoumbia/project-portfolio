@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects</title>
+  <meta name="description" content="All engineering projects" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" id="brandName">Portfolio</a>
+      <div class="nav-links">
+        <a class="active" href="projects.html">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h1>Projects</h1>
+        <p>Filterable list of projects with scope, tools, and measurable outcomes.</p>
+      </div>
+
+      <div class="toolbar">
+        <label class="field">
+          <span class="label">Search</span>
+          <input id="searchInput" type="search" placeholder="e.g., CubeSat, LTSpice, GMAT, embedded…" />
+        </label>
+
+        <label class="field">
+          <span class="label">Tag</span>
+          <select id="tagSelect">
+            <option value="">All</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="label">Sort</span>
+          <select id="sortSelect">
+            <option value="recent">Most recent</option>
+            <option value="title">Title (A–Z)</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid" id="projectsGrid" aria-live="polite"></div>
+      <p class="muted small" id="countText"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted small" id="footerText">© <span id="year"></span> Portfolio</p>
+      <a class="muted small" href="index.html">Home</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/projects.js"></script>
+</body>
+</html>

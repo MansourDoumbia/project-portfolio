@@ -1,0 +1,242 @@
+{
+  "projects": [
+    {
+      "id": "cubesat-adcs",
+      "title": "CubeSat ADCS Concept & Simulation",
+      "org": "Personal / Harvard Satellite Team",
+      "role": "Mechanical Subteam",
+      "dates": "2025",
+      "summary": "Concept trades and simulation workflow for small-satellite attitude determination and control.",
+      "tags": ["Aerospace", "Simulation", "Systems"],
+      "tools": ["MATLAB", "GMAT", "Python"],
+      "photos": [
+        {
+          "src": "assets/img/projects/cubesat-adcs/hero.jpg",
+          "alt": "CubeSat ADCS concept illustration",
+          "caption": "ADCS concept overview and simulation flow.",
+          "hero": true
+        },
+        {
+          "src": "assets/img/projects/cubesat-adcs/block-diagram.png",
+          "alt": "ADCS block diagram",
+          "caption": "Control loop block diagram used for analysis."
+        }
+      ],
+      "whatIDid": [
+        "Defined ADCS requirements and pointing error budget for a 3U CubeSat class mission.",
+        "Built a simulation workflow to evaluate candidate sensor/actuator configurations.",
+        "Documented assumptions, test cases, and verification checks for repeatable analysis."
+      ],
+      "results": [
+        "Produced a down-select matrix comparing multiple ADCS architectures.",
+        "Validated stability and pointing performance against defined scenarios."
+      ],
+      "links": [
+        { "label": "One-page summary (PDF)", "href": "assets/links/cubesat-adcs-summary.pdf" },
+        { "label": "Code repository", "href": "https://github.com/yourname/cubesat-adcs" }
+      ],
+      "featured": true,
+      "featuredOrder": 1
+    },
+    {
+      "id": "pulsejet-engine",
+      "title": "Pulsejet Engine Design & Testing",
+      "org": "Personal / Makerspace NYC",
+      "role": "Personal Project",
+      "dates": "2025",
+      "summary": "Obtained funding from Makerspace NYC to develop my very own propane powered jet engine from scratch.",
+      "tags": ["Fluids", "Controls", "Mechanical Design"],
+      "tools": ["Python", "C/C++", "CAD"],
+      "photos": [
+        {
+          "src": "assets/photos/Propane-Schematic.jpg",
+          "alt": "Pulsejet engine schematic",
+          "caption": "Bench test configuration for the pulsejet prototype.",
+          "hero": true
+        },
+        {
+          "src": "assets/img/projects/pulsejet-engine/cad.png",
+          "alt": "CAD model of pulsejet engine",
+          "caption": "CAD model used to iterate geometry prior to fabrication."
+        }
+      ],
+      "whatIDid": [
+        "Used Mill, Lathe, Welding Iron, and other machines required for this project.",
+        "Designed hydrulic valive system to control the fluid flow rate and pressure for liquid birpopellant release"
+      ],
+      "results": [
+        "Demonstrated mastery of fabrication and fluid dynamics.",
+        "Created a cool frickin rocket engine."
+      ],
+      "links": [
+        { "label": "Makerspace NYC", "href": "https://www.makerspace.nyc/" },
+        { "label": "Design Equations", "href": "assets/docs/cohetes_f1c95d6e472d.pdf" },
+        { "label": "Project Files", "href": "https://drive.google.com/drive/folders/1c0qLt7m4__hC5UI1eSCV0M2ZMeOmGJcU" }
+      ],
+      "featured": true,
+      "featuredOrder": 2
+    },
+    {
+      "id": "mind-controlled-rover",
+      "title": "Bioelectric Signal Processing: Mind Controlled Rover",
+      "org": "ES50 Final Project",
+      "role": "Designer / Coder / Neuroscientist",
+      "dates": "2025",
+      "summary": "Used the Backyard Brains SpikerBox to collect data from both EMG (muscle movement signals) and EEG (brain wave signals) to move a mechanical rover.",
+      "tags": ["Signal Processing", "Arduino", "Embedded Systems"],
+      "tools": ["Arduino IDE", "EEG Oscilation Mapping", "MATLAB"],
+      "photos": [
+        {
+          "src": "assets\\photos\\BoeBotRover.JPG",
+          "alt": "Boebot Rover",
+          "caption": "Mini Sized Rover",
+          "hero": true
+        },
+        {
+          "src": "assets\\photos\\EEG_Graphs.png",
+          "alt": "Brain oscilloscope waveform capture",
+          "caption": "We graphed the graphs from the EEG and EMG signals to better understand how they work."
+        },
+    {
+          "src": "assets\\photos\\MansourMindControlledRover.png",
+          "alt": "Mansour Working on Rover",
+          "caption": "Me working on the Rover"
+        }
+        
+      ],
+      "whatIDid": [
+        "Created a system to measure certain oscillations in the brain and map them to rover movements.",
+        "Created a small neural net to map certain waveforms to particular emotions / focus levels"
+      ],
+      "results": [
+        "Improved test repeatability by standardizing setup and measurement steps.",
+        "Identified a transient overshoot condition and proposed mitigation options."
+      ],
+      "links": [
+        { "label": "Project Report", "href": "assets\\docs\\ES50 Final Project Report.pdf" }
+      ],
+      "featured": true,
+      "featuredOrder": 3
+    },
+    {
+      "id": "studdy-buddy-app",
+      "title": "Studdy Buddy Web App",
+      "org": "CS50 Final Project",
+      "role": "Developer / Designer",
+      "dates": "2025",
+      "summary": "Study Buddy is a sleek and clean web app I built to make studying more fun and less stressful by turning it into a series of mini-games. It includes three main modes—Test, Match, and Sprint—each offering a different way to review material in a more interactive and engaging format.",
+      "tags": ["Web Development", "Database Management", "Full Stack Dev"],
+      "tools": ["HTML, CSS, JavaScript", "UI/UX", "Flask", "SQL"],
+      "photos": [
+        {
+          "src": "assets\\photos\\StuddyBuddy_Logo_84a6bd589a8a.png",
+          "alt": "Studdy Buddy Web App",
+          "caption": "Studdy Buddy Logo.",
+          "hero": true
+        },
+        {
+          "src": "assets\\photos\\StuddyBuddy_Screenshot.png",
+          "alt": "Studdy Buddy Web Screenshot",
+          "caption": "Studdy Buddy Web Page.",
+          "hero": true
+        }
+      ],
+      "whatIDid": [
+        "Designed and built the full-stack app: UI/UX, responsive front end (HTML/Bootstrap + JavaScript/React), and Flask backend integration.",
+        "Created and implemented a MySQL database schema and queries to store/retrieve study content for the database-driven game modes.",
+        "Developed core gameplay logic across modes, including drag-and-drop interactivity, real-time validation/feedback, scoring systems, and lightweight on-the-fly problem generation for Sprint."
+      ],
+      "results": [
+        "Increased study effectiveness through structured multiple-choice practice with instant correctness feedback.",
+        "Improved user motivation by awarding points and making progress measurable throughout a session.",
+        "Delivered consistent question accuracy and replayability by pulling content from a centralized database."
+      ],
+      "links": [{"label": "Github Project Repository", "href": "https://github.com/MansourDou/StuddyBuddy"}],
+      "featured": true
+    },
+    {
+      "id": "accel-launcher",
+      "title": "AccelSpin: High-Speed Rotational Launcher for Projectile Deployment",
+      "org": "Personal",
+      "role": "Embedded Systems",
+      "dates": "2025",
+      "summary": "I designed and built a mechanical system capable of launching projectiles vertically into the air using 1000 RPM rotational energy.",
+      "tags": ["CAD", "3D Fabrication / Printing", "Control Systems / PID Control"],
+      "tools": ["Fusion360", "Arduino", "Lathe"],
+      "photos": [
+        {
+          "src": "assets\\photos\\Platform.png",
+          "alt": "CAD 1",
+          "caption": "Platform",
+          "hero": true
+        },
+        {
+          "src": "assets\\photos\\Launch-Rail.png",
+          "alt": "CAD 2",
+          "caption": "Spindle System"
+        }
+      ],
+      "whatIDid": [
+        "Designed and fabricated a rotational-energy launcher using a arm driven by a high-torque electric motor.",
+        "Implemented tunable speed control to adjust launch force based on projectile mass and target altitude.",
+        "Incorporated stability and safety considerations for high-speed motion"
+      ],
+      "results": [
+        "Achieved consistent, repeatable vertical launch trajectories by releasing projectiles at a controlled, calculated point near peak angular velocity.",
+        "Reached stable high-speed operation up to 1000 RPM through vibration control and secure mounting, improving reliability and safety.",
+        "Created a practical test platform for validating real-world projectile motion and trajectory modeling under variable launch conditions."
+      ],
+      "links": [
+        { "label": "Google Drive", "href": "https://drive.google.com/drive/folders/1e768-QQSb0Xv7KeCekq8Os64ijGV0Bzn" }
+      ],
+      "featured": true
+    }, 
+    {
+      "id": "model-rocketry-tvc-airbrakes",
+      "title": "Autonomous Control: Thrust Vector Control (TVC) and Airbrakes for Model Rocketry",
+      "org": "Up And Above Space Corp",
+      "role": "President",
+      "dates": "2023-2025",
+      "summary": "I designed and built reusable model rockets with embedded systems that control orientation and position during launch",
+      "tags": ["CAD", "3D Fabrication / Printing", "Control Systems / Embedded Systems"],
+      "tools": ["OpenRocket", "Arduino", "Computational Fluid Dynamics (CFD)"],
+      "photos": [
+        {
+          "src": "assets\\photos\\IMG_0009__1__d00ab1606aa9.png",
+          "alt": "Rocket1",
+          "caption": "Box of Rockets",
+          "hero": false
+        },
+        {
+          "src": "assets\\photos\\IMG_0182_c5905a82c3fa.png",
+          "alt": "Rocket2"
+        },
+        {
+          "src": "assets\\photos\\IMG_0183_fbba2f961060 (1).jpg",
+          "alt": "Rocket2",
+          "hero": true
+        },
+        {
+          "src": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s",
+          "alt": "Rocket3",
+          "caption": "Rocket Launch Video"
+        }
+      ],
+      "whatIDid": [
+        "Designed and built a servo-controlled gimbal-based TVC system to redirect motor thrust and produce controlled pitch/yaw adjustments.",
+        "Engineered deployable airbrakes optimized to generate drag while minimizing instability and adverse performance effects during ascent.",
+        "Integrated both subsystems into a single flight-control approach, aligning mechanical design and actuation timing around key phases (initial launch and near-peak)."
+      ],
+      "results": [
+        "Improved flight control and maneuverability by enabling real-time trajectory adjustments through thrust vectoring during powered flight.",
+        "Increased ascent consistency and reduced overshoot by deploying airbrakes near apogee to add controllable drag and manage altitude.",
+        "Enabled more sophisticated flight profiles by combining propulsion-based control (TVC) with drag inducing aerodynamic control (airbrakes) for multi-phase guidance."
+      ],
+      "links": [
+        { "label": "Youtube", "href": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s" },
+        { "label": "Github Project Repository", "href": "https://github.com/MansourDoumbia/TVCs" }
+      ],
+      "featured": true
+    }
+  ]
+}

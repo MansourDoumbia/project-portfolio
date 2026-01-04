@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project Portfolio</title>
+  <meta name="description" content="Mechanical Engineering Project Portfolio" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" id="brandName">Portfolio</a>
+      <div class="nav-links">
+        <a href="projects.html">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow" id="eyebrow">Mechanical Engineering</p>
+        <h1 id="headline">Project Portfolio</h1>
+        <p class="lede" id="tagline">
+          Design, simulation, and hands-on build work across aerospace, robotics, and electronics.
+        </p>
+
+        <div class="cta-row">
+          <a class="button primary" href="projects.html">View Projects</a>
+          <a class="button" id="resumeLink" href="#" target="_blank" rel="noopener">Resume</a>
+        </div>
+
+        <div class="quick-facts" id="quickFacts" aria-label="Quick facts"></div>
+      </div>
+    </section>
+
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+            </div>
+        <div class="grid featured-grid" id="featuredGrid" aria-live="polite"></div>
+
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>About</h2>
+          <p id="aboutText">
+            I build mechanical systems and supporting software workflows, with an emphasis on rigorous testing and
+            clear engineering documentation.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3>Core strengths</h3>
+            <ul class="list" id="strengthsList"></ul>
+          </div>
+
+          <div class="card">
+            <h3>Tooling</h3>
+            <p class="muted">
+            </p>
+            <div class="chips" id="toolsChips"></div>
+          </div>
+        </div>
+
+        <!-- NEW: Coursework card -->
+        <div class="card" id="coursesCard" style="margin-top:14px;">
+          <h3>Key STEM coursework</h3>
+          <ul class="list" id="coursesList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact</h2>
+          <p>Fastest response via email.</p>
+        </div>
+
+        <div class="card">
+          <div class="contact-row">
+            <div>
+              <p class="label">Email</p>
+              <a id="emailLink" href="#">you@example.com</a>
+            </div>
+            <div>
+              <p class="label">Location</p>
+              <p id="locationText">City, State</p>
+            </div>
+            <div>
+              <p class="label">Links</p>
+              <div class="link-row">
+                <a id="githubLink" href="#" target="_blank" rel="noopener">GitHub</a>
+                <a id="linkedinLink" href="#" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted small" id="footerText">© <span id="year"></span> Portfolio</p>
+      <a class="muted small" href="projects.html">All projects</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

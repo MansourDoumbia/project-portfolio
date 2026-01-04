@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project</title>
+  <meta name="description" content="Project details" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" id="brandName">Portfolio</a>
+      <div class="nav-links">
+        <a href="projects.html">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="content" class="section">
+    <div class="container">
+      <a class="back-link" href="projects.html">← Back to projects</a>
+
+      <article class="project" id="projectRoot" aria-live="polite">
+        <header class="project-header">
+          <h1 id="pTitle">Project Title</h1>
+          <p class="muted" id="pMeta"></p>
+          <div class="chips" id="pTags"></div>
+        </header>
+
+        <!-- NEW: Photos -->
+        <section class="card" id="pPhotosCard">
+          <h2>Photos</h2>
+
+          <!-- Hero image -->
+          <figure class="project-hero" id="pHeroFigure" style="margin: 0 0 12px 0;">
+            <img id="pHeroImg" alt="" style="width: 100%; height: auto; border-radius: 14px;" />
+            <figcaption class="muted small" id="pHeroCaption" style="margin-top: 8px;"></figcaption>
+          </figure>
+
+          <!-- Gallery -->
+          <div class="grid" id="pGallery"></div>
+        </section>
+
+        <div class="two-col">
+          <section class="card">
+            <h2>Summary</h2>
+            <p id="pSummary"></p>
+          </section>
+          <section class="card">
+            <h2>Tools</h2>
+            <div class="chips" id="pTools"></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <h2>What I did</h2>
+          <ul class="list" id="pBullets"></ul>
+        </section>
+
+        <section class="card" id="pResultsCard">
+          <h2>Results</h2>
+          <ul class="list" id="pResults"></ul>
+        </section>
+
+        <section class="card" id="pLinksCard">
+          <h2>Links</h2>
+          <div class="link-row" id="pLinks"></div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p class="muted small" id="footerText">© <span id="year"></span> Portfolio</p>
+      <a class="muted small" href="projects.html">All projects</a>
+    </div>
+  </footer>
+
+  <script>
+    async function loadJSON(path) {
+      const res = await fetch(path, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Failed to load ${path}`);
+      return res.json();
+    }
+
+    function qs(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    function chip(text) {
+      const span = document.createElement("span");
+      span.className = "chip";
+      span.textContent = text;
+      return span;
+    }
+
+    function linkEl(label, href) {
+      const a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = label;
+      return a;
+    }
+
+    // NEW: gallery item element
+    function photoEl(ph) {
+      const fig = document.createElement("figure");
+      fig.className = "card";
+      fig.style.margin = "0";
+      fig.style.padding = "10px";
+
+      const img = document.createElement("img");
+      img.src = ph.src;
+      img.alt = ph.alt || "";
+      img.loading = "lazy";
+      img.style.width = "100%";
+      img.style.height = "auto";
+      img.style.borderRadius = "12px";
+
+      fig.appendChild(img);
+
+      if (ph.caption) {
+        const cap = document.createElement("figcaption");
+        cap.className = "muted small";
+        cap.textContent = ph.caption;
+        cap.style.marginTop = "8px";
+        fig.appendChild(cap);
+      }
+
+      return fig;
+    }
+
+    (async function init() {
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const site = await loadJSON("data/site.json");
+      const brand = document.getElementById("brandName");
+      if (brand) brand.textContent = site.nameShort || "Portfolio";
+
+      const id = qs("id");
+      if (!id) {
+        document.getElementById("projectRoot").innerHTML =
+          `<div class="card"><h1>Project not found</h1><p class="muted">Missing project id.</p></div>`;
+        return;
+      }
+
+      const data = await loadJSON("data/projects.json");
+      const p = (data.projects || []).find(x => x.id === id);
+
+      if (!p) {
+        document.title = "Project not found";
+        document.getElementById("projectRoot").innerHTML =
+          `<div class="card"><h1>Project not found</h1><p class="muted">No project matches id: ${id}</p></div>`;
+        return;
+      }
+
+      document.title = `${p.title} | Projects`;
+
+      document.getElementById("pTitle").textContent = p.title;
+      document.getElementById("pMeta").textContent = [p.org, p.role, p.dates].filter(Boolean).join(" • ");
+      document.getElementById("pSummary").textContent = p.summary || "";
+
+      const tagRoot = document.getElementById("pTags");
+      tagRoot.innerHTML = "";
+      (p.tags || []).forEach(t => tagRoot.appendChild(chip(t)));
+
+      const toolRoot = document.getElementById("pTools");
+      toolRoot.innerHTML = "";
+      (p.tools || []).forEach(t => toolRoot.appendChild(chip(t)));
+
+      // NEW: Photos rendering
+      const photosCard = document.getElementById("pPhotosCard");
+      const heroFig = document.getElementById("pHeroFigure");
+      const heroImg = document.getElementById("pHeroImg");
+      const heroCap = document.getElementById("pHeroCaption");
+      const gallery = document.getElementById("pGallery");
+
+      const photos = Array.isArray(p.photos) ? p.photos : [];
+      if (photosCard && heroFig && heroImg && heroCap && gallery) {
+        if (photos.length) {
+          // Choose hero: first with hero=true, else first photo
+          const hero = photos.find(x => x.hero) || photos[0];
+          heroImg.src = hero.src;
+          heroImg.alt = hero.alt || "";
+          heroCap.textContent = hero.caption || "";
+
+          // If no hero caption, hide figcaption (keeps spacing clean)
+          heroCap.style.display = hero.caption ? "block" : "none";
+
+          // Gallery (all photos)
+          gallery.innerHTML = "";
+          photos.forEach(ph => gallery.appendChild(photoEl(ph)));
+        } else {
+          photosCard.style.display = "none";
+        }
+      }
+
+      const bullets = document.getElementById("pBullets");
+      bullets.innerHTML = "";
+      (p.whatIDid || []).forEach(b => {
+        const li = document.createElement("li");
+        li.textContent = b;
+        bullets.appendChild(li);
+      });
+
+      const resultsCard = document.getElementById("pResultsCard");
+      const results = document.getElementById("pResults");
+      results.innerHTML = "";
+      if (p.results && p.results.length) {
+        p.results.forEach(r => {
+          const li = document.createElement("li");
+          li.textContent = r;
+          results.appendChild(li);
+        });
+      } else if (resultsCard) {
+        resultsCard.style.display = "none";
+      }
+
+      const linksCard = document.getElementById("pLinksCard");
+      const links = document.getElementById("pLinks");
+      links.innerHTML = "";
+      if (p.links && p.links.length) {
+        p.links.forEach(l => links.appendChild(linkEl(l.label, l.href)));
+      } else if (linksCard) {
+        linksCard.style.display = "none";
+      }
+    })().catch(err => {
+      console.error(err);
+      document.getElementById("projectRoot").innerHTML =
+        `<div class="card"><h1>Error</h1><p class="muted">Could not load project data.</p></div>`;
+    });
+  </script>
+</body>
+</html>

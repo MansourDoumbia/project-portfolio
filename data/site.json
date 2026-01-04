@@ -1,0 +1,54 @@
+{
+  "nameShort": "M. Doumbia",
+  "eyebrow": "Mechanical Engineering • Robotics • Aerospace",
+  "headline": "Mansour Doumbia — Project Portfolio",
+  "tagline": "Mechanical systems, hardware integration, and simulation-driven build work across CubeSat, robotics, and experimental propulsion.",
+  "location": "New York, NY",
+  "email": "mansourdoumbia@college.harvard.edu",
+
+  "githubUrl": "https://github.com/MansourDoumbia",
+  "linkedinUrl": "https://www.linkedin.com/in/mansour-doumbia",
+  "resumeUrl": "assets/MansourDoumbiaResume.docx",
+
+  "about": "I’m a Harvard College student studying Mechanical Engineering and Neuroscience. My work emphasizes practical fabrication, hardware integration, and analysis workflows that translate into testable engineering decisions.",
+
+  "quickFacts": [
+    "PCB + BMS work (Harvard Robotics Club)",
+    "CubeSat space hardware (Harvard SEDS)",
+    "Bayesian modeling (STAN/JAGS)",
+    "GMAT + simulation workflows", 
+    "PointNet Based Deep Learning"
+  ],
+
+  "strengths": [
+    "PCB/hardware development for robotics power systems",
+    "Robotics systems and hardware integration",
+    "Satellite systems and space hardware integration",
+    "Computational data analysis and probabilistic modeling"
+  ],
+
+  "tools": [
+    "SolidWorks / Fusion 360",
+    "Arduino / Raspberry Pi",
+    "Computational Fluid Dynamics (CFD)",
+    "NetworkX",
+    "Python",
+    "C/C++",
+    "Python",
+    "MATLAB",
+    "Git",
+    "LTSpice",
+    "NASA GMAT"
+  ],
+
+  "courses": [
+    "CS50 — Introduction to Computer Science",
+    "ES50 — Introduction to Electrical Engineering",
+    "AM105 — Ordinary and Partial Differential Equations",
+    "ES51 — Computer-Aided Machine Design",
+    "ES125 — Mechanical Systems",
+    "ESE160 — Space Science and Engineering",
+    "STAT 110 — Introduction to Statistics and Probability",
+    "NEURO 231 — Computational Neuroscience"
+  ]
+}
