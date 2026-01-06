@@ -24,18 +24,33 @@
   <main id="content">
     <section class="hero">
       <div class="container">
-        <p class="eyebrow" id="eyebrow">Mechanical Engineering</p>
-        <h1 id="headline">Project Portfolio</h1>
-        <p class="lede" id="tagline">
-          Design, simulation, and hands-on build work across aerospace, robotics, and electronics.
-        </p>
+        <div class="hero-row">
+          <!-- Left: Headshot -->
+          <div class="hero-left" aria-label="Headshot">
+            <!-- Replace src with your image path -->
+            <img
+              class="headshot"
+              src="assets/photos/headshot.jpg"
+              alt="Headshot"
+            />
+          </div>
 
-        <div class="cta-row">
-          <a class="button primary" href="projects.html">View Projects</a>
-          <a class="button" id="resumeLink" href="#" target="_blank" rel="noopener">Resume</a>
+          <!-- Right: Text -->
+          <div class="hero-right">
+            <p class="eyebrow" id="eyebrow">Mechanical Engineering</p>
+            <h1 id="headline">Project Portfolio</h1>
+            <p class="lede" id="tagline">
+              Design, simulation, and hands-on build work across aerospace, robotics, and electronics.
+            </p>
+
+            <div class="cta-row">
+              <a class="button primary" href="projects.html">View Projects</a>
+              <a class="button" id="resumeLink" href="#" target="_blank" rel="noopener">Resume</a>
+            </div>
+
+            <div class="quick-facts" id="quickFacts" aria-label="Quick facts"></div>
+          </div>
         </div>
-
-        <div class="quick-facts" id="quickFacts" aria-label="Quick facts"></div>
       </div>
     </section>
 
@@ -43,9 +58,8 @@
       <div class="container">
         <div class="section-header">
           <h2>Featured Projects</h2>
-            </div>
+        </div>
         <div class="grid featured-grid" id="featuredGrid" aria-live="polite"></div>
-
       </div>
     </section>
 
@@ -67,13 +81,12 @@
 
           <div class="card">
             <h3>Tooling</h3>
-            <p class="muted">
-            </p>
+            <p class="muted"></p>
             <div class="chips" id="toolsChips"></div>
           </div>
         </div>
 
-        <!-- NEW: Coursework card -->
+        <!-- Coursework card -->
         <div class="card" id="coursesCard" style="margin-top:14px;">
           <h3>Key STEM coursework</h3>
           <ul class="list" id="coursesList"></ul>

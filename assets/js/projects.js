@@ -11,6 +11,22 @@ function chip(text) {
   return span;
 }
 
+function youtubeUrlFromVideo(v) {
+  if (!v) return null;
+
+  // Preferred schema: { youtubeId, label?, startSeconds? }
+  if (v.youtubeId) {
+    const t = Number.isFinite(v.startSeconds) ? Math.max(0, v.startSeconds) : null;
+    return `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}${t ? `&t=${t}s` : ""}`;
+  }
+
+  // Fallback schema: { url } or { href }
+  if (v.url) return v.url;
+  if (v.href) return v.href;
+
+  return null;
+}
+
 function projectCard(p) {
   const a = document.createElement("a");
   a.className = "card project-card";
@@ -30,6 +46,27 @@ function projectCard(p) {
   const chips = document.createElement("div");
   chips.className = "chips";
   (p.tags || []).slice(0, 6).forEach(t => chips.appendChild(chip(t)));
+
+  // NEW: video indicator + optional "Watch" chip-link
+  const vids = Array.isArray(p.videos) ? p.videos : [];
+  if (vids.length) {
+    chips.appendChild(chip("Video"));
+
+    const firstUrl = youtubeUrlFromVideo(vids[0]);
+    if (firstUrl) {
+      const watch = document.createElement("a");
+      watch.href = firstUrl;
+      watch.target = "_blank";
+      watch.rel = "noopener";
+      watch.className = "chip"; // reuse chip styling
+      watch.textContent = "Watch";
+
+      // Prevent outer card link from firing when clicking Watch
+      watch.addEventListener("click", (e) => e.stopPropagation());
+
+      chips.appendChild(watch);
+    }
+  }
 
   a.appendChild(h);
   a.appendChild(meta);
@@ -111,17 +148,23 @@ function getRecentKey(p) {
     const sort = sortSelect.value;
 
     let filtered = projects.filter(p => {
+      const videoText = (Array.isArray(p.videos) ? p.videos : [])
+        .map(v => [v.label, v.youtubeId, v.url, v.href].filter(Boolean).join(" "))
+        .join(" ");
+
       const hay = normalize([
         p.title, p.org, p.role, p.dates, p.summary,
-        ...(p.tags || []), ...(p.tools || [])
+        ...(p.tags || []), ...(p.tools || []),
+        videoText
       ].join(" "));
+
       const qOK = !q || hay.includes(q);
       const tagOK = !tag || (p.tags || []).includes(tag);
       return qOK && tagOK;
     });
 
     if (sort === "title") {
-      filtered.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+      filtered.sort((a, b) => (a.title || "").localeCompare(b.title || "")); // A–Z
     } else {
       // "recent": sort by sortKey if present, otherwise derive from dates
       filtered.sort((a, b) => getRecentKey(b).localeCompare(getRecentKey(a)));

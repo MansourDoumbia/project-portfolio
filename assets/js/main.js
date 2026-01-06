@@ -18,13 +18,52 @@ function chip(text) {
   return span;
 }
 
+function pickProjectThumb(p) {
+  const photos = Array.isArray(p.photos) ? p.photos : [];
+  const hero = photos.find(x => x.hero) || photos[0];
+  return hero ? hero.src : null;
+}
+
+function youtubeUrlFromVideo(v) {
+  if (!v) return null;
+
+  // Preferred schema: { youtubeId, label?, startSeconds? }
+  if (v.youtubeId) {
+    const t = Number.isFinite(v.startSeconds) ? Math.max(0, v.startSeconds) : null;
+    return `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}${t ? `&t=${t}s` : ""}`;
+  }
+
+  // Fallback schema: { url } or { href }
+  if (v.url) return v.url;
+  if (v.href) return v.href;
+
+  return null;
+}
+
 function projectCard(p) {
   const a = document.createElement("a");
   a.className = "card project-card";
-  a.href = `project.html?id=${encodeURIComponent(p.id)}`;
+  a.href = `project.html?id=${encodeURIComponent(p.id || "")}`;
+
+  // Thumbnail (small)
+  const thumbSrc = pickProjectThumb(p);
+  if (thumbSrc) {
+    const img = document.createElement("img");
+    img.className = "project-thumb";
+    img.src = thumbSrc;
+    img.alt =
+      (Array.isArray(p.photos) && p.photos[0] && p.photos[0].alt)
+        ? p.photos[0].alt
+        : `${p.title || "Project"} thumbnail`;
+    img.loading = "lazy";
+    a.appendChild(img);
+  }
+
+  // Content column
+  const content = document.createElement("div");
 
   const h = document.createElement("h3");
-  h.textContent = p.title;
+  h.textContent = p.title || "(Untitled project)";
 
   const meta = document.createElement("p");
   meta.className = "muted small";
@@ -34,14 +73,37 @@ function projectCard(p) {
   s.className = "muted";
   s.textContent = p.summary || "";
 
-  const chips = document.createElement("div");
-  chips.className = "chips";
-  (p.tags || []).slice(0, 5).forEach(t => chips.appendChild(chip(t)));
+  const chipsWrap = document.createElement("div");
+  chipsWrap.className = "chips";
+  (p.tags || []).slice(0, 5).forEach(t => chipsWrap.appendChild(chip(t)));
 
-  a.appendChild(h);
-  a.appendChild(meta);
-  a.appendChild(s);
-  a.appendChild(chips);
+  // NEW: video indicator + optional Watch link
+  const vids = Array.isArray(p.videos) ? p.videos : [];
+  if (vids.length) {
+    chipsWrap.appendChild(chip("Video"));
+
+    const firstUrl = youtubeUrlFromVideo(vids[0]);
+    if (firstUrl) {
+      const watch = document.createElement("a");
+      watch.href = firstUrl;
+      watch.target = "_blank";
+      watch.rel = "noopener";
+      watch.className = "chip";
+      watch.textContent = "Watch";
+
+      // prevent outer card click
+      watch.addEventListener("click", (e) => e.stopPropagation());
+
+      chipsWrap.appendChild(watch);
+    }
+  }
+
+  content.appendChild(h);
+  content.appendChild(meta);
+  content.appendChild(s);
+  content.appendChild(chipsWrap);
+
+  a.appendChild(content);
   return a;
 }
 
@@ -129,10 +191,10 @@ function projectCard(p) {
 
   let featured = allProjects.filter(p => p.featured);
 
-  // If you use featuredOrder, sort by it (lower = earlier)
+  // Order by featuredOrder if present
   featured.sort((a, b) => (a.featuredOrder ?? 999) - (b.featuredOrder ?? 999));
 
-  // Fallback: if none marked featured, show first 6 projects
+  // Fallback if none marked featured
   if (!featured.length) featured = allProjects.slice(0, 6);
 
   const grid = document.getElementById("featuredGrid");
@@ -143,49 +205,3 @@ function projectCard(p) {
 })().catch(err => {
   console.error(err);
 });
-function pickProjectThumb(p) {
-  const photos = Array.isArray(p.photos) ? p.photos : [];
-  const hero = photos.find(x => x.hero) || photos[0];
-  return hero ? hero.src : null;
-}
-
-function projectCard(p) {
-  const a = document.createElement("a");
-  a.className = "card project-card";
-  a.href = `project.html?id=${encodeURIComponent(p.id)}`;
-
-  const thumbSrc = pickProjectThumb(p);
-  if (thumbSrc) {
-    const img = document.createElement("img");
-    img.className = "project-thumb";
-    img.src = thumbSrc;
-    img.alt = (Array.isArray(p.photos) && p.photos[0] && p.photos[0].alt) ? p.photos[0].alt : `${p.title} thumbnail`;
-    img.loading = "lazy";
-    a.appendChild(img);
-  }
-
-  const content = document.createElement("div");
-
-  const h = document.createElement("h3");
-  h.textContent = p.title;
-
-  const meta = document.createElement("p");
-  meta.className = "muted small";
-  meta.textContent = [p.org, p.role, p.dates].filter(Boolean).join(" • ");
-
-  const s = document.createElement("p");
-  s.className = "muted";
-  s.textContent = p.summary || "";
-
-  const chips = document.createElement("div");
-  chips.className = "chips";
-  (p.tags || []).slice(0, 5).forEach(t => chips.appendChild(chip(t)));
-
-  content.appendChild(h);
-  content.appendChild(meta);
-  content.appendChild(s);
-  content.appendChild(chips);
-
-  a.appendChild(content);
-  return a;
-}

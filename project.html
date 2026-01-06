@@ -32,18 +32,24 @@
           <div class="chips" id="pTags"></div>
         </header>
 
-        <!-- NEW: Photos -->
+        <!-- Photos -->
         <section class="card" id="pPhotosCard">
           <h2>Photos</h2>
 
-          <!-- Hero image -->
-          <figure class="project-hero" id="pHeroFigure" style="margin: 0 0 12px 0;">
-            <img id="pHeroImg" alt="" style="width: 100%; height: auto; border-radius: 14px;" />
-            <figcaption class="muted small" id="pHeroCaption" style="margin-top: 8px;"></figcaption>
+          <!-- Optional hero image (remove this block if you never want a hero) -->
+          <figure class="project-hero" id="pHeroFigure">
+            <img id="pHeroImg" alt="" />
+            <figcaption class="muted small" id="pHeroCaption"></figcaption>
           </figure>
 
           <!-- Gallery -->
-          <div class="grid" id="pGallery"></div>
+          <div class="project-gallery" id="pGallery"></div>
+        </section>
+
+        <!-- NEW: Videos -->
+        <section class="card" id="pVideosCard">
+          <h2>Video</h2>
+          <div id="pVideos"></div>
         </section>
 
         <div class="two-col">
@@ -110,32 +116,96 @@
       return a;
     }
 
-    // NEW: gallery item element
+    // Gallery item element (uses CSS classes, no inline styles)
     function photoEl(ph) {
       const fig = document.createElement("figure");
-      fig.className = "card";
-      fig.style.margin = "0";
-      fig.style.padding = "10px";
+      fig.className = "card project-photo";
 
       const img = document.createElement("img");
+      img.className = "project-photo-img";
       img.src = ph.src;
       img.alt = ph.alt || "";
       img.loading = "lazy";
-      img.style.width = "100%";
-      img.style.height = "auto";
-      img.style.borderRadius = "12px";
-
       fig.appendChild(img);
 
       if (ph.caption) {
         const cap = document.createElement("figcaption");
-        cap.className = "muted small";
+        cap.className = "muted small project-photo-cap";
         cap.textContent = ph.caption;
-        cap.style.marginTop = "8px";
         fig.appendChild(cap);
       }
 
       return fig;
+    }
+
+    function youtubeEmbedUrl(v) {
+      if (!v) return null;
+
+      // Preferred schema: youtubeId + optional startSeconds
+      if (v.youtubeId) {
+        const t = Number.isFinite(v.startSeconds) ? Math.max(0, v.startSeconds) : null;
+        return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.youtubeId)}${t ? `?start=${t}` : ""}`;
+      }
+
+      // Fallback: if someone provided a full URL, try to extract v=ID
+      const raw = v.url || v.href;
+      if (raw) {
+        try {
+          const u = new URL(raw);
+          const id = u.searchParams.get("v");
+          if (id) return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`;
+        } catch (_) {}
+      }
+      return null;
+    }
+
+    function videoEl(v) {
+      const wrap = document.createElement("div");
+      wrap.style.marginTop = "12px";
+
+      if (v.label) {
+        const title = document.createElement("p");
+        title.className = "muted small";
+        title.textContent = v.label;
+        title.style.margin = "0 0 8px 0";
+        wrap.appendChild(title);
+      }
+
+      const src = youtubeEmbedUrl(v);
+      if (!src) {
+        const msg = document.createElement("p");
+        msg.className = "muted small";
+        msg.textContent = "Video link is missing or invalid.";
+        wrap.appendChild(msg);
+        return wrap;
+      }
+
+      const frameWrap = document.createElement("div");
+      frameWrap.style.position = "relative";
+      frameWrap.style.width = "100%";
+      frameWrap.style.maxWidth = "780px";
+      frameWrap.style.margin = "0 auto";
+      frameWrap.style.aspectRatio = "16 / 9";
+      frameWrap.style.borderRadius = "14px";
+      frameWrap.style.overflow = "hidden";
+      frameWrap.style.border = "1px solid var(--border)";
+      frameWrap.style.background = "rgba(255,255,255,.03)";
+
+      const iframe = document.createElement("iframe");
+      iframe.src = src;
+      iframe.title = v.label || "YouTube video";
+      iframe.loading = "lazy";
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "0";
+
+      frameWrap.appendChild(iframe);
+      wrap.appendChild(frameWrap);
+      return wrap;
     }
 
     (async function init() {
@@ -165,7 +235,7 @@
 
       document.title = `${p.title} | Projects`;
 
-      document.getElementById("pTitle").textContent = p.title;
+      document.getElementById("pTitle").textContent = p.title || "";
       document.getElementById("pMeta").textContent = [p.org, p.role, p.dates].filter(Boolean).join(" • ");
       document.getElementById("pSummary").textContent = p.summary || "";
 
@@ -177,7 +247,7 @@
       toolRoot.innerHTML = "";
       (p.tools || []).forEach(t => toolRoot.appendChild(chip(t)));
 
-      // NEW: Photos rendering
+      // Photos
       const photosCard = document.getElementById("pPhotosCard");
       const heroFig = document.getElementById("pHeroFigure");
       const heroImg = document.getElementById("pHeroImg");
@@ -187,16 +257,12 @@
       const photos = Array.isArray(p.photos) ? p.photos : [];
       if (photosCard && heroFig && heroImg && heroCap && gallery) {
         if (photos.length) {
-          // Choose hero: first with hero=true, else first photo
           const hero = photos.find(x => x.hero) || photos[0];
           heroImg.src = hero.src;
           heroImg.alt = hero.alt || "";
           heroCap.textContent = hero.caption || "";
-
-          // If no hero caption, hide figcaption (keeps spacing clean)
           heroCap.style.display = hero.caption ? "block" : "none";
 
-          // Gallery (all photos)
           gallery.innerHTML = "";
           photos.forEach(ph => gallery.appendChild(photoEl(ph)));
         } else {
@@ -204,6 +270,20 @@
         }
       }
 
+      // Videos
+      const videosCard = document.getElementById("pVideosCard");
+      const videosRoot = document.getElementById("pVideos");
+      const vids = Array.isArray(p.videos) ? p.videos : [];
+      if (videosCard && videosRoot) {
+        if (vids.length) {
+          videosRoot.innerHTML = "";
+          vids.forEach(v => videosRoot.appendChild(videoEl(v)));
+        } else {
+          videosCard.style.display = "none";
+        }
+      }
+
+      // Bullets
       const bullets = document.getElementById("pBullets");
       bullets.innerHTML = "";
       (p.whatIDid || []).forEach(b => {
@@ -212,6 +292,7 @@
         bullets.appendChild(li);
       });
 
+      // Results
       const resultsCard = document.getElementById("pResultsCard");
       const results = document.getElementById("pResults");
       results.innerHTML = "";
@@ -225,6 +306,7 @@
         resultsCard.style.display = "none";
       }
 
+      // Links
       const linksCard = document.getElementById("pLinksCard");
       const links = document.getElementById("pLinks");
       links.innerHTML = "";
