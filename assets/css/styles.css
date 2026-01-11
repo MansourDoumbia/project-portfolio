@@ -10,14 +10,14 @@
   --accent: #5f7cff;   /* your existing blue */
   --accent2: #00d4ff;  /* your existing cyan */
 
-  /* Consistent surfaces + borders */
-  --surface-1: rgba(17, 19, 26, 0.86);
-  --surface-2: rgba(17, 19, 26, 0.72);
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  /* Consistent surfaces + borders (tuned for continuous feel) */
+  --surface-1: rgba(17, 19, 26, 0.58);
+  --surface-2: rgba(17, 19, 26, 0.44);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.13);
 
-  /* Shadows and rounding */
-  --shadow: 0 10px 26px rgba(0, 0, 0, 0.40);
+  /* Shadows and rounding (reduced “tile” effect) */
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
   --radius: 16px;
 
   /* Layout */
@@ -42,9 +42,16 @@ body {
     radial-gradient(900px 520px at 18% 0%, rgba(95, 124, 255, 0.16), transparent 62%),
     radial-gradient(900px 520px at 82% 0%, rgba(0, 212, 255, 0.08), transparent 64%),
     var(--bg);
+  /* makes the background feel like one continuous canvas */
+  background-attachment: fixed;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* avoid mobile “fixed background” jank */
+@media (max-width: 900px) {
+  body { background-attachment: scroll; }
 }
 
 /* Links: professional default + subtle accent on hover */
@@ -73,7 +80,8 @@ a:hover { text-decoration: underline; }
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--border);
-  background: rgba(11, 12, 16, 0.72);
+  /* softened so it doesn’t look like a hard bar */
+  background: rgba(11, 12, 16, 0.55);
   backdrop-filter: blur(12px);
 }
 
@@ -157,12 +165,14 @@ h1 {
   border-radius: 999px;
   object-fit: cover;
   border: 1px solid var(--border);
+  /* keep a subtle shadow for the headshot only */
   box-shadow: var(--shadow);
   background: rgba(255,255,255,0.02);
 }
 
-/* Sections */
-.section { padding: 34px 0; }
+/* Sections (tuned for flow) */
+.section { padding: 56px 0; }
+.section + .section { border-top: 1px solid rgba(255,255,255,0.06); }
 .section-header p { margin: 0; color: var(--muted); }
 
 /* Buttons: consistent and cleaner */
@@ -217,7 +227,7 @@ h1 {
   font-size: 13px;
 }
 
-/* Grid + cards: unified surfaces */
+/* Grid + cards: unified surfaces (made less “blocky”) */
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -228,10 +238,13 @@ h1 {
 .card {
   grid-column: span 6;
   border: 1px solid var(--border);
-  background: var(--surface-1);
+  /* slightly more transparent so the page reads continuous */
+  background: var(--surface-2);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  /* removing the shadow is the biggest “continuous” win */
+  box-shadow: none;
   padding: 16px;
+  backdrop-filter: blur(8px);
 }
 
 .card p { margin: 0; color: var(--muted); }
@@ -304,12 +317,12 @@ a.chip:hover { text-decoration: none; outline: 1px solid rgba(255,255,255,0.18);
 }
 .link-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* Footer */
+/* Footer (made continuous) */
 .site-footer {
   border-top: 1px solid var(--border);
-  padding: 18px 0;
-  margin-top: 26px;
-  background: rgba(11,12,16,0.56);
+  padding: 28px 0;
+  margin-top: 0;
+  background: transparent;
 }
 .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 
@@ -357,7 +370,10 @@ a.chip:hover { text-decoration: none; outline: 1px solid rgba(255,255,255,0.18);
   padding: 10px;
   border-radius: 14px;
   border: 1px solid var(--border);
+  /* more blended into the page */
   background: var(--surface-2);
+  box-shadow: none;
+  backdrop-filter: blur(8px);
 }
 
 .project-photo-img {

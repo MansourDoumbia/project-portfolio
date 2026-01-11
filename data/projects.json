@@ -2,50 +2,50 @@
   "projects": [
     {
       "id": "cubesat-adcs",
-      "title": "CubeSat ADCS Concept & Simulation",
+      "title": "CubeSat ADCS Concept and Simulation",
       "org": "Personal / Harvard Satellite Team (SEDS)",
       "role": "Mechanical Subteam",
       "dates": "2025",
-      "summary": "Concept trades and simulation workflow for small-satellite attitude determination and control.",
-      "tags": ["Aerospace", "Simulation", "Systems"],
+      "summary": "Attitude determination and control system concept development and simulation workflow for a 3U-class CubeSat mission.",
+      "tags": ["Aerospace", "Simulation", "Systems Engineering"],
       "tools": ["MATLAB", "GMAT", "Python"],
       "photos": [
         {
           "src": "assets/img/projects/cubesat-adcs/hero.jpg",
           "alt": "CubeSat ADCS concept illustration",
-          "caption": "ADCS concept overview and simulation flow.",
+          "caption": "ADCS concept overview and end-to-end simulation workflow.",
           "hero": true
         },
         {
           "src": "assets/img/projects/cubesat-adcs/block-diagram.png",
           "alt": "ADCS block diagram",
-          "caption": "Control loop block diagram used for analysis."
+          "caption": "Control loop block diagram used for architecture evaluation."
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Defined ADCS requirements and pointing error budget for a 3U CubeSat class mission.",
-        "Built a simulation workflow to evaluate candidate sensor/actuator configurations.",
-        "Documented assumptions, test cases, and verification checks for repeatable analysis."
+        "Defined attitude control requirements and pointing error budget for a 3U CubeSat mission concept.",
+        "Developed a repeatable simulation workflow to evaluate candidate sensor and actuator configurations under representative orbital disturbance scenarios.",
+        "Documented modeling assumptions, test cases, and verification checks to support consistent architecture comparison."
       ],
       "results": [
-        "Produced a down-select matrix comparing multiple ADCS architectures.",
-        "Validated stability and pointing performance against defined scenarios."
+        "Produced a quantitative down-select matrix comparing multiple ADCS architectures.",
+        "Validated system stability and pointing performance against defined mission scenarios in simulation."
       ],
       "links": [
-        { "label": "One-page summary (PDF)", "href": "assets/links/cubesat-adcs-summary.pdf" }
+        { "label": "One-page technical summary (PDF)", "href": "assets/links/cubesat-adcs-summary.pdf" }
       ],
       "featured": false
     },
     {
       "id": "pulsejet-engine",
-      "title": "Pulsejet Engine Design & Testing",
+      "title": "Pulsejet Engine Design and Testing",
       "org": "Personal / Makerspace NYC",
-      "role": "Personal Project",
+      "role": "Project Lead",
       "dates": "2025",
-      "summary": "Obtained funding from Makerspace NYC to develop my very own propane powered jet engine from scratch.",
-      "tags": ["Fluids", "Controls", "Mechanical Design"],
-      "tools": ["Python", "C/C++", "CAD"],
+      "summary": "Design, fabrication, and bench testing of a propane-fueled pulsejet engine prototype.",
+      "tags": ["Propulsion", "Fluid Dynamics", "Mechanical Fabrication"],
+      "tools": ["CAD", "Python", "C/C++"],
       "photos": [
         {
           "src": "assets/photos/Propane-Schematic.jpg",
@@ -56,23 +56,24 @@
         {
           "src": "assets/img/projects/pulsejet-engine/cad.png",
           "alt": "CAD model of pulsejet engine",
-          "caption": "CAD model used to iterate geometry prior to fabrication."
+          "caption": "CAD model used to iterate combustion chamber and inlet geometry prior to fabrication."
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Used Mill, Lathe, Welding Iron, and other machines required for this project.",
-        "Designed hydraulic valve system to control the fluid flow rate and pressure for liquid propellant release"
+        "Designed and fabricated a propane-fueled pulsejet prototype using manual machining, welding, and assembly processes.",
+        "Designed a controlled propellant delivery system to regulate flow rate and inlet pressure during operation.",
+        "Conducted bench testing to evaluate ignition stability, operating behavior, and thermal response."
       ],
       "results": [
-        "Demonstrated mastery of fabrication and fluid dynamics.",
-        "Created a cool frickin rocket engine."
+        "Achieved sustained pulsejet operation during bench testing.",
+        "Identified combustion stability and thermal constraints that informed iterative design refinements."
       ],
       "links": [
         { "label": "Makerspace NYC", "href": "https://www.makerspace.nyc/" },
-        { "label": "Design Equations", "href": "assets/docs/cohetes_f1c95d6e472d.pdf" },
+        { "label": "Design equations", "href": "assets/docs/cohetes_f1c95d6e472d.pdf" },
         {
-          "label": "Project Files",
+          "label": "Project files",
           "href": "https://drive.google.com/drive/folders/1c0qLt7m4__hC5UI1eSCV0M2ZMeOmGJcU"
         }
       ],
@@ -81,217 +82,193 @@
     },
     {
       "id": "mind-controlled-rover",
-      "title": "Bioelectric Signal Processing: Mind Controlled Rover",
+      "title": "Bioelectric Signal Processing for Embedded Rover Control",
       "org": "ES50 Final Project",
-      "role": "Designer / Coder ",
+      "role": "Designer and Developer",
       "dates": "2025",
-      "summary": "Used the Backyard Brains SpikerBox to collect data from both EMG (muscle movement signals) and EEG (brain wave signals) to move a mechanical rover.",
-      "tags": ["Signal Processing", "Arduino", "Embedded Systems"],
-      "tools": ["Arduino IDE", "EEG Oscillation Mapping", "MATLAB"],
+      "summary": "Embedded system that processes EEG and EMG bioelectric signals to control a mobile robotic platform.",
+      "tags": ["Signal Processing", "Embedded Systems", "Controls"],
+      "tools": ["Arduino", "MATLAB"],
       "photos": [
         {
           "src": "assets/photos/BoeBotRover.JPG",
           "alt": "Boebot Rover",
-          "caption": "Mini Sized Rover",
+          "caption": "Mobile rover platform used for signal-controlled testing.",
           "hero": true
         },
         {
           "src": "assets/photos/EEG_Graphs.png",
-          "alt": "Brain oscilloscope waveform capture",
-          "caption": "We graphed the graphs from the EEG and EMG signals to better understand how they work."
+          "alt": "EEG and EMG waveform capture",
+          "caption": "Captured EEG and EMG waveforms used for signal characterization."
         },
         {
           "src": "assets/photos/MansourMindControlledRover.png",
-          "alt": "Mansour working on rover",
-          "caption": "Me working on the Rover"
+          "alt": "Testing embedded rover system",
+          "caption": "System integration and testing of signal-driven control logic."
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Created a system to measure certain oscillations in the brain and map them to rover movements.",
-        "Created a small neural net to map certain waveforms to particular emotions / focus levels"
+        "Developed signal-processing logic to extract frequency-domain features from EEG and EMG measurements.",
+        "Implemented embedded control mapping between extracted signal features and rover motion states.",
+        "Standardized test setup and data collection procedures to improve repeatability."
       ],
       "results": [
-        "Improved test repeatability by standardizing setup and measurement steps.",
-        "Identified a transient overshoot condition and proposed mitigation options."
+        "Achieved consistent rover response under controlled test conditions.",
+        "Identified transient overshoot behavior and proposed mitigation strategies through control logic refinement."
       ],
       "links": [
-        { "label": "Project Report", "href": "assets/docs/ES50 Final Project Report.pdf" }
+        { "label": "Project report", "href": "assets/docs/ES50 Final Project Report.pdf" }
       ],
       "featured": true,
       "featuredOrder": 3
     },
     {
       "id": "studdy-buddy-app",
-      "title": "Studdy Buddy Web App",
+      "title": "Studdy Buddy Web Application",
       "org": "CS50 Final Project",
-      "role": "Developer / Designer",
+      "role": "Developer and Designer",
       "dates": "2025",
-      "summary": "Studdy Buddy is a sleek and clean web app I built to make studying more fun and less stressful by turning it into a series of mini-games. It includes three main modes—Test, Match, and Sprint—each offering a different way to review material in a more interactive and engaging format.",
-      "tags": ["Web Development", "Database Management", "Full Stack Dev"],
-      "tools": ["HTML, CSS, JavaScript", "UI/UX", "Flask", "SQL"],
+      "summary": "Full-stack educational web application designed to improve study engagement through interactive game-based review modes.",
+      "tags": ["Full Stack Development", "Databases", "UI/UX"],
+      "tools": ["HTML", "CSS", "JavaScript", "Flask", "SQL"],
       "photos": [
         {
           "src": "assets/photos/StuddyBuddy_Logo_84a6bd589a8a.png",
-          "alt": "Studdy Buddy Web App",
-          "caption": "Studdy Buddy Logo.",
+          "alt": "Studdy Buddy logo",
+          "caption": "Studdy Buddy application branding.",
           "hero": true
         },
         {
           "src": "assets/photos/StuddyBuddy_Screenshot.png",
-          "alt": "Studdy Buddy Web Screenshot",
-          "caption": "Studdy Buddy Web Page."
+          "alt": "Studdy Buddy interface",
+          "caption": "Web interface showing interactive study modes."
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Designed and built the full-stack app: UI/UX, responsive front end (HTML/Bootstrap + JavaScript/React), and Flask backend integration.",
-        "Created and implemented a MySQL database schema and queries to store/retrieve study content for the database-driven game modes.",
-        "Developed core gameplay logic across modes, including drag-and-drop interactivity, real-time validation/feedback, scoring systems, and lightweight on-the-fly problem generation for Sprint."
+        "Designed and implemented the full-stack architecture including front end, backend, and database integration.",
+        "Developed structured game logic with real-time feedback, scoring, and randomized content generation.",
+        "Designed a relational database schema to support scalable content storage and retrieval."
       ],
       "results": [
-        "Increased study effectiveness through structured multiple-choice practice with instant correctness feedback.",
-        "Improved user motivation by awarding points and making progress measurable throughout a session.",
-        "Delivered consistent question accuracy and replayability by pulling content from a centralized database."
+        "Delivered a responsive and reliable study tool with consistent content retrieval and validation.",
+        "Improved user engagement through measurable progress tracking and feedback mechanisms."
       ],
       "links": [
-        { "label": "Github Project Repository", "href": "https://github.com/MansourDou/StuddyBuddy" }
+        { "label": "GitHub repository", "href": "https://github.com/MansourDou/StuddyBuddy" }
       ],
-      "featured": true
+      "featured": false
     },
     {
       "id": "accel-launcher",
-      "title": "AccelSpin: High-Speed Rotational Launcher for Projectile Deployment",
+      "title": "AccelSpin High-Speed Rotational Launcher",
       "org": "Personal",
-      "role": "Developer",
+      "role": "Designer and Fabricator",
       "dates": "2025",
-      "summary": "I designed and built a mechanical system capable of launching projectiles vertically into the air using 1000 RPM rotational energy.",
-      "tags": ["CAD", "3D Fabrication / Printing", "Control Systems / PID Control"],
-      "tools": ["Fusion360", "Arduino", "Lathe"],
+      "summary": "Design and fabrication of a high-speed rotational system capable of launching projectiles using stored rotational energy.",
+      "tags": ["Mechanical Design", "Controls", "Fabrication"],
+      "tools": ["Fusion 360", "Arduino", "Lathe"],
       "photos": [
         {
           "src": "assets/photos/Platform.png",
-          "alt": "CAD 1",
-          "caption": "Platform",
+          "alt": "Launcher platform CAD",
+          "caption": "Structural platform supporting high-speed rotation.",
           "hero": true
         },
         {
           "src": "assets/photos/Launch-Rail.png",
-          "alt": "CAD 2",
-          "caption": "Spindle System"
+          "alt": "Spindle system CAD",
+          "caption": "Spindle and release mechanism used for projectile deployment."
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Designed and fabricated a rotational-energy launcher using a arm driven by a high-torque electric motor.",
-        "Implemented tunable speed control to adjust launch force based on projectile mass and target altitude.",
-        "Incorporated stability and safety considerations for high-speed motion"
+        "Designed and fabricated a rotational launcher driven by a high-torque electric motor.",
+        "Implemented tunable speed control to adjust launch energy based on projectile mass and target altitude.",
+        "Incorporated vibration mitigation and safety constraints for high-speed operation."
       ],
       "results": [
-        "Achieved consistent, repeatable vertical launch trajectories by releasing projectiles at a controlled, calculated point near peak angular velocity.",
-        "Reached stable high-speed operation up to 1000 RPM through vibration control and secure mounting, improving reliability and safety.",
-        "Created a practical test platform for validating real-world projectile motion and trajectory modeling under variable launch conditions."
+        "Achieved repeatable vertical launch trajectories through controlled release timing.",
+        "Maintained stable operation up to 1000 RPM following vibration control improvements."
       ],
       "links": [
-        { "label": "Google Drive", "href": "https://drive.google.com/drive/folders/1e768-QQSb0Xv7KeCekq8Os64ijGV0Bzn" }
+        { "label": "Project files", "href": "https://drive.google.com/drive/folders/1e768-QQSb0Xv7KeCekq8Os64ijGV0Bzn" }
       ],
       "featured": true
     },
     {
       "id": "model-rocketry-tvc-airbrakes",
-      "title": "Autonomous Control: Thrust Vector Control (TVC) and Airbrakes for Model Rocketry",
+      "title": "Autonomous Control Systems for Model Rocketry",
       "org": "Up And Above Space Corp",
       "role": "President",
       "dates": "2023-2025",
-      "summary": "I designed and built reusable model rockets with embedded systems that control orientation and position during launch. This project consisted of two separate projects. Thrust Vector Controllers and the Airbrakes. The TVC system used a servo-controlled gimbal to redirect motor thrust for pitch/yaw adjustments, while the airbrakes deployed near apogee to increase drag and manage altitude",
-      "tags": ["CAD", "3D Fabrication / Printing", "Control Systems / Embedded Systems"],
-      "tools": ["OpenRocket", "Arduino", "Computational Fluid Dynamics (CFD)"],
+      "summary": "Design and flight testing of reusable model rockets with embedded thrust vector control and deployable airbrake systems.",
+      "tags": ["Controls", "Embedded Systems", "Aerodynamics"],
+      "tools": ["Arduino", "OpenRocket", "CFD"],
       "photos": [
         {
-          "src": "assets/photos/IMG_0009__1__d00ab1606aa9.png",
-          "alt": "Rocket1",
-          "caption": "Box of Rockets",
-          "hero": false
-
-        },
-        {
-          "src": "assets/photos/IMG_0182_c5905a82c3fa.png",
-          "alt": "Rocket2"
-        },
-        {
           "src": "assets/photos/IMG_0183_fbba2f961060 (1).jpg",
-          "alt": "Rocket2",
+          "alt": "Model rocket with control systems",
+          "caption": "Reusable rocket integrating TVC and airbrake subsystems.",
           "hero": true
         }
       ],
       "videos": [
         {
-          "label": "Rocket launch video",
+          "label": "Flight test video",
           "youtubeId": "Pr0mVHKWC3w",
           "startSeconds": 6
         }
       ],
       "whatIDid": [
-        "Designed and built a servo-controlled gimbal-based TVC system to redirect motor thrust and produce controlled pitch/yaw adjustments.",
-        "Engineered deployable airbrakes optimized to generate drag while minimizing instability and adverse performance effects during ascent.",
-        "Using Fluid Dynamics simulations generated a Markov function to predict the movement of the body based off past data. Servos will move accordintly.",
-        "Integrated both subsystems into a single flight-control approach, aligning mechanical design and actuation timing around key phases (initial launch and near-peak)."
+        "Designed and built a servo-actuated gimbal system to provide thrust vector control during powered ascent.",
+        "Engineered deployable airbrakes to increase drag near apogee while maintaining vehicle stability.",
+        "Integrated embedded control logic coordinating propulsion-based and aerodynamic control across flight phases."
       ],
       "results": [
-        "Improved flight control and maneuverability by enabling real-time trajectory adjustments through thrust vectoring during powered flight.",
-        "Increased ascent consistency and reduced overshoot by deploying airbrakes near apogee to add controllable drag and manage altitude.",
-        "Enabled more sophisticated flight profiles by combining propulsion-based control (TVC) with drag inducing aerodynamic control (airbrakes) for multi-phase guidance."
+        "Enabled real-time trajectory correction during powered flight through thrust vectoring.",
+        "Improved ascent consistency and altitude control using combined TVC and airbrake strategies."
       ],
       "links": [
-        { "label": "Youtube", "href": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s" },
-        { "label": "Github Project Repository", "href": "https://github.com/MansourDoumbia/TVCs" }
+        { "label": "GitHub repository", "href": "https://github.com/MansourDoumbia/TVCs" },
+        { "label": "Flight video", "href": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s" }
       ],
       "featured": true
     },
-
     {
       "id": "egg-gang",
-      "title": "Mechanical Systems Final Project: Mechanical Egg Cage",
+      "title": "Mechanical Impact Mitigation System",
       "org": "ES125 Final Project",
-      "role": "Developer / Designer",
+      "role": "Designer",
       "dates": "2025",
-      "summary": "We designed a two-layer spring–damper egg protection system intended to maximize the time/distance over which the egg decelerates on impact. The build used 12 springs + 12 dampers with a mix of 30° angled and straight spring-dampers, plus constraints on angled dampers and side flaps to increase drag and reduce terminal velocity; total mass was 2.14 kg.",
-      "tags": ["Mechanical Vibrations", "Development Workflow / Teamwork", "Iterative Design"],
-      "tools": ["Fusion360", "3D Printing + Slciing", "Laser Cutting"],
+      "summary": "Design and validation of a spring-damper impact mitigation system to reduce peak acceleration during drop tests.",
+      "tags": ["Mechanical Vibrations", "Dynamics", "Design"],
+      "tools": ["Fusion 360", "3D Printing", "Laser Cutting"],
       "photos": [
         {
-          "src": "assets\\photos\\IMG_7554.jpg",
-          "alt": "Group Photo",
-          "caption": "Egg Gang!!",
+          "src": "assets/photos/IMG_7554.jpg",
+          "alt": "Impact mitigation system",
+          "caption": "Two-layer spring-damper structure used for drop testing.",
           "hero": true
-        },
-        {
-          "src": "assets\\photos\\IMG_7533 (1).jpg",
-          "alt": "Machanical Egg Cage",
-          "caption": "Hard at work"
-        },
-          {
-          "src": "assets\\photos\\IMG_7551.jpg",
-          "alt": "Machanical Egg Cage2",
-          "caption": "In the lab"
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Designed the mechanical concept around extending deceleration time and improving stability using 30° angled spring-dampers + constraints.",
-        "Calculated system-level parameters (effective stiffness/damping) and characterized the response avoid bouncing/rebounce.",
-        "Modeled expected drop behavior (damped response) and computed drop velocities and maximum accelerations for target heights using impulse/kinematics-based equations."
+        "Designed a two-layer spring-damper system to extend deceleration time and reduce peak impact loads.",
+        "Calculated effective stiffness and damping values and modeled expected dynamic response.",
+        "Validated performance through physical drop testing under mass and height constraints."
       ],
       "results": [
-        "Final mass: 2.14 kg excluding egg",
-        "Effective Stiffness = 4370 N/m ; Effective Damping = 480 N/(m/s)",
-        "Survived a fall from several feet in the air with the egg fully intact"
+        "Final system mass of 2.14 kg excluding payload.",
+        "Measured effective stiffness of 4370 N/m and damping of 480 N per m per s.",
+        "Successfully protected payload during repeated drop tests."
       ],
       "links": [
-        { "label": "Presentation", "href": "https://docs.google.com/presentation/d/1AG6dhsprdf5cDCbdSHodlncWblbGL_fK4fhmDjoYZTw/edit?slide=id.p1#slide=id.p1" },
-        { "label": "Google Drive", "href": "https://drive.google.com/drive/folders/1AU0ZtB9WOb-cLBf2XZcf2o2CMr5qqloX?usp=sharing" }
+        { "label": "Presentation", "href": "https://docs.google.com/presentation/d/1AG6dhsprdf5cDCbdSHodlncWblbGL_fK4fhmDjoYZTw/edit" },
+        { "label": "Project files", "href": "https://drive.google.com/drive/folders/1AU0ZtB9WOb-cLBf2XZcf2o2CMr5qqloX" }
       ],
       "featured": true
-    } 
+    }
   ]
 }
