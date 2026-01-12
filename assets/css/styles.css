@@ -42,13 +42,50 @@ body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   color: var(--text);
+
+  /* Continuous, smoother background */
   background:
-    radial-gradient(900px 520px at 18% 0%, rgba(95, 124, 255, 0.16), transparent 62%),
-    radial-gradient(900px 520px at 82% 0%, rgba(0, 212, 255, 0.08), transparent 64%),
-    var(--bg);
+    /* soft highlight top-left */
+    radial-gradient(farthest-corner at 18% 0%,
+      rgba(95, 124, 255, 0.18) 0%,
+      rgba(95, 124, 255, 0.10) 22%,
+      rgba(95, 124, 255, 0.00) 60%
+    ),
+
+    /* soft highlight top-right */
+    radial-gradient(farthest-corner at 82% 0%,
+      rgba(0, 212, 255, 0.12) 0%,
+      rgba(0, 212, 255, 0.06) 26%,
+      rgba(0, 212, 255, 0.00) 62%
+    ),
+
+    /* subtle wash to blend everything */
+    radial-gradient(farthest-corner at 50% 30%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.00) 55%
+    ),
+
+    /* base gradient (prevents “flat” banding) */
+    linear-gradient(180deg,
+      #0b0c10 0%,
+      #090a0f 45%,
+      #07080d 100%
+    );
+
+  background-attachment: fixed; /* keeps it continuous on scroll */
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Optional: ultra-subtle dithering layer to reduce banding on dark gradients */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
 /* Links: professional default + subtle accent on hover */
