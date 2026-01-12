@@ -32,21 +32,13 @@
           <div class="chips" id="pTags"></div>
         </header>
 
-        <!-- Photos -->
+        <!-- Photos (normalized grid only; no big hero image) -->
         <section class="card" id="pPhotosCard">
           <h2>Photos</h2>
-
-          <!-- Optional hero image (remove this block if you never want a hero) -->
-          <figure class="project-hero" id="pHeroFigure">
-            <img id="pHeroImg" alt="" />
-            <figcaption class="muted small" id="pHeroCaption"></figcaption>
-          </figure>
-
-          <!-- Gallery -->
           <div class="project-gallery" id="pGallery"></div>
         </section>
 
-        <!-- NEW: Videos -->
+        <!-- Videos -->
         <section class="card" id="pVideosCard">
           <h2>Video</h2>
           <div id="pVideos"></div>
@@ -116,7 +108,7 @@
       return a;
     }
 
-    // Gallery item element (uses CSS classes, no inline styles)
+    // Normalized gallery item (uses your CSS: .project-photo, .project-photo-img, .project-photo-cap)
     function photoEl(ph) {
       const fig = document.createElement("figure");
       fig.className = "card project-photo";
@@ -247,24 +239,18 @@
       toolRoot.innerHTML = "";
       (p.tools || []).forEach(t => toolRoot.appendChild(chip(t)));
 
-      // Photos
+      // Photos (normalized grid only)
       const photosCard = document.getElementById("pPhotosCard");
-      const heroFig = document.getElementById("pHeroFigure");
-      const heroImg = document.getElementById("pHeroImg");
-      const heroCap = document.getElementById("pHeroCaption");
       const gallery = document.getElementById("pGallery");
-
       const photos = Array.isArray(p.photos) ? p.photos : [];
-      if (photosCard && heroFig && heroImg && heroCap && gallery) {
+
+      if (photosCard && gallery) {
         if (photos.length) {
-          const hero = photos.find(x => x.hero) || photos[0];
-          heroImg.src = hero.src;
-          heroImg.alt = hero.alt || "";
-          heroCap.textContent = hero.caption || "";
-          heroCap.style.display = hero.caption ? "block" : "none";
+          // Put hero=true first (but still same size), then the rest
+          const sorted = [...photos].sort((a, b) => (b.hero ? 1 : 0) - (a.hero ? 1 : 0));
 
           gallery.innerHTML = "";
-          photos.forEach(ph => gallery.appendChild(photoEl(ph)));
+          sorted.forEach(ph => gallery.appendChild(photoEl(ph)));
         } else {
           photosCard.style.display = "none";
         }
