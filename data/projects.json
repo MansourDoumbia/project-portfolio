@@ -43,7 +43,7 @@
   "org": "NASA L’SPACE Program",
   "role": "Administrative Lead",
   "dates": "2025 - 2026",
-  "summary": "Secured $10K in program funding and co-led an 8-person team to develop a 40-page mission concept selected for final review by NASA engineers. Coordinated a 12-advisor review cadence, drove SME outreach (including faculty and military officials), and synthesized design trade studies into concise, decision-ready recommendations.",
+  "summary": "Secured $10K in program funding and co-led an 8-person team to develop a 40-page mission concept selected for final review by NASA engineers. Coordinated a 12-advisor review cadence, drove SME outreach.",
   "highlights": [
     "Won $10K in funding; co-led an 8-person team through end-to-end mission concept development",
     "Produced a 40-page mission concept selected for final review by NASA engineers out of ~60 teams",
@@ -62,14 +62,14 @@
   "tools": ["Python", "MATLAB", "GMAT", "Excel", "PowerPoint"],
   "photos": [
     {
-      "src": "assets/img/projects/nasa-lspace/l'space roles.webp",
-      "alt": "Roles in NASA L'SPACE project",
-      "hero": true
+      "src": "assets\\photos\\l'space roles.png",
+      "alt": "Roles in NASA L'SPACE project"
     },
     {
       "src": "assets/photos/NASA_L'SPACE_QuadChart.png",
       "alt": "Quad Chart presentation",
-      "capttion": "Presented mission concept overview to NASA engineers during final review."
+      "caption": "Presented mission concept overview to NASA engineers during final review.",
+      "hero": true
     },
     {
       "src": "assets/photos/Screenshot 2026-01-28 194659.png",
