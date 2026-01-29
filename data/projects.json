@@ -58,6 +58,7 @@
     "Technical Communications",
     "Project Leadership"
   ],
+  
   "tools": ["Python", "MATLAB", "GMAT", "Excel", "PowerPoint"],
   "photos": [
     {
@@ -87,7 +88,9 @@
 ],
       "links": [
         { "label": "Team 11 Proposal", "href": "assets/docs/Team 11 Proposal - Lunar & Planetary Servicing Swarm Robots.pdf" }
-      ]
+      ],
+      "featured": true,
+      "featuredOrder": 1
 },
     {
       "id": "pulsejet-engine",
