@@ -38,6 +38,58 @@
       "featured": false
     },
     {
+  "id": "nasa-lspace",
+  "title": "NASA L'SPACE Swarm Robotics",
+  "org": "NASA L’SPACE Program",
+  "role": "Administrative Lead",
+  "dates": "2025 - 2026",
+  "summary": "Secured $10K in program funding and co-led an 8-person team to develop a 40-page mission concept selected for final review by NASA engineers. Coordinated a 12-advisor review cadence, drove SME outreach (including faculty and military officials), and synthesized design trade studies into concise, decision-ready recommendations.",
+  "highlights": [
+    "Won $10K in funding; co-led an 8-person team through end-to-end mission concept development",
+    "Produced a 40-page mission concept selected for final review by NASA engineers out of ~60 teams",
+    "Facilitated design trade-off discussions with 12 advisors and condensed outcomes into executive recommendations",
+    "Established and managed communications with SMEs ranging from faculty advisors to military officials"
+  ],
+  "tags": [
+    "Swarm Robotics",
+    "Mission Concept Development",
+    "Systems Engineering",
+    "Trade Studies",
+    "Technical Communications",
+    "Project Leadership"
+  ],
+  "tools": ["Python", "MATLAB", "GMAT", "Excel", "PowerPoint"],
+  "photos": [
+    {
+      "src": "assets/img/projects/nasa-lspace/l'space roles.webp",
+      "alt": "Roles in NASA L'SPACE project",
+      "hero": true
+    },
+    {
+      "src": "assets/photos/NASA_L'SPACE_QuadChart.png",
+      "alt": "Quad Chart presentation",
+      "capttion": "Presented mission concept overview to NASA engineers during final review."
+    },
+    {
+      "src": "assets/photos/Screenshot 2026-01-28 194659.png",
+      "alt": "System trade study and decision matrix"
+    }
+  ],
+      "whatIDid": [
+  "Served as Mechanical Engineering Coordinator for the Lunar & Planetary Servicing Swarm Robots project, leading mechanical design efforts and cross-subsystem coordination for the heterogeneous swarm.",
+  "Led the mechanical design and hardware integration of the swarm robots, including chassis architecture, actuator and mobility system selection, structural load paths, and modular interfaces for tools and self-assembling units.",
+  "Defined system-level functional requirements and key performance parameters—such as mobility, load capacity, autonomy support, communication robustness, and self-assembly constraints—in collaboration with autonomy and software leads.",
+  "Developed and documented a simulation-informed evaluation framework to assess swarm coordination, navigation stability, and self-assembly behavior under representative lunar terrain and communication scenarios."
+],
+"results": [
+  "Delivered an integrated mechanical architecture enabling modular tool exchange, cooperative manipulation, and reliable self-assembly across swarm robot types.",
+  "Supported simulation- and trade-study-based validation demonstrating stable swarm coordination, fault-tolerant task execution, and mechanically feasible operation against defined mission scenarios."
+],
+      "links": [
+        { "label": "Team 11 Proposal", "href": "assets/docs/Team 11 Proposal - Lunar & Planetary Servicing Swarm Robots.pdf" }
+      ]
+},
+    {
       "id": "pulsejet-engine",
       "title": "Pulsejet Engine Design and Testing",
       "org": "Personal / Makerspace NYC",
