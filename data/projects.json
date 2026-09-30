@@ -73,22 +73,8 @@
         "Project Leadership"
       ],
       "tools": ["CAD", "GD&T", "Python", "MATLAB", "GMAT", "Excel", "PowerPoint"],
-      "photos": [
-        {
-          "src": "assets/photos/l'space roles.png",
-          "alt": "Roles in NASA L'SPACE project"
-        },
-        {
-          "src": "assets/photos/NASA_L'SPACE_QuadChart.png",
-          "alt": "Quad Chart presentation",
-          "caption": "Mission concept overview presented during final review.",
-          "hero": true
-        },
-        {
-          "src": "assets/photos/Screenshot 2026-01-28 194659.png",
-          "alt": "System trade study and decision matrix"
-        }
-      ],
+      "photos": [],
+      "mediaNote": "Due to NDA restrictions, project images cannot be provided.",
       "videos": [],
       "whatIDid": [
         "Co-led an 8-person team through mission concept development for Lunar and Planetary Servicing Swarm Robots.",
@@ -104,8 +90,7 @@
       "links": [
         { "label": "Team 11 Proposal", "href": "assets/docs/Team 11 Proposal - Lunar & Planetary Servicing Swarm Robots.pdf" }
       ],
-      "featured": true,
-      "featuredOrder": 1
+      "featured": false
     },
     {
       "id": "pulsejet-engine",
@@ -141,7 +126,7 @@
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1c0qLt7m4__hC5UI1eSCV0M2ZMeOmGJcU" }
       ],
       "featured": true,
-      "featuredOrder": 2
+      "featuredOrder": 1
     },
     {
       "id": "model-rocketry-tvc-airbrakes",
@@ -183,7 +168,7 @@
         { "label": "Flight video", "href": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s" }
       ],
       "featured": true,
-      "featuredOrder": 3
+      "featuredOrder": 2
     },
     {
       "id": "biorobotics-terrain-classification",
@@ -296,7 +281,7 @@
         { "label": "Project report", "href": "assets/docs/ES50 Final Project Report.pdf" }
       ],
       "featured": true,
-      "featuredOrder": 4
+      "featuredOrder": 3
     },
     {
       "id": "studdy-buddy-app",
@@ -373,7 +358,7 @@
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1e768-QQSb0Xv7KeCekq8Os64ijGV0Bzn" }
       ],
       "featured": true,
-      "featuredOrder": 5
+      "featuredOrder": 4
     },
     {
       "id": "egg-gang",
@@ -409,7 +394,7 @@
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1AU0ZtB9WOb-cLBf2XZcf2o2CMr5qqloX" }
       ],
       "featured": true,
-      "featuredOrder": 6
+      "featuredOrder": 5
     }
   ]
 }

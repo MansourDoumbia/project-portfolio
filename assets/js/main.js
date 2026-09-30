@@ -45,6 +45,7 @@ function projectCard(p) {
 
   const thumbSrc = pickProjectThumb(p);
   if (thumbSrc) {
+    a.classList.add("has-thumb");
     const img = document.createElement("img");
     img.className = "project-thumb";
     img.src = thumbSrc;
@@ -54,6 +55,8 @@ function projectCard(p) {
         : `${p.title || "Project"} thumbnail`;
     img.loading = "lazy";
     a.appendChild(img);
+  } else {
+    a.classList.add("no-thumb");
   }
 
   const content = document.createElement("div");

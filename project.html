@@ -244,6 +244,12 @@
           const sorted = [...photos].sort((a, b) => (b.hero ? 1 : 0) - (a.hero ? 1 : 0));
           gallery.innerHTML = "";
           sorted.forEach(ph => gallery.appendChild(photoEl(ph)));
+        } else if (p.mediaNote) {
+          gallery.innerHTML = "";
+          const note = document.createElement("p");
+          note.className = "muted";
+          note.textContent = p.mediaNote;
+          gallery.appendChild(note);
         } else {
           photosCard.style.display = "none";
         }

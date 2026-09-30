@@ -390,9 +390,13 @@ input:focus-visible, select:focus-visible {
 
 .featured-grid .project-card {
   display: grid;
-  grid-template-columns: 86px 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
   align-items: start;
+}
+
+.featured-grid .project-card.has-thumb {
+  grid-template-columns: 86px 1fr;
 }
 
 .featured-grid .project-thumb {
