@@ -1,54 +1,141 @@
 {
   "nameShort": "M. Doumbia",
-  "eyebrow": "Mechanical Engineering • Robotics • Aerospace",
-  "headline": "Mansour Doumbia — Project Portfolio",
-  "tagline": "Mechanical systems, hardware integration, and simulation-driven build work across CubeSat, robotics, and experimental propulsion.",
+  "eyebrow": "Mechanical Engineering | Robotics | Aerospace",
+  "headline": "Mansour Doumbia - Project Portfolio",
+  "tagline": "Harvard mechanical engineering student working on field robotics, RF antenna testing, aerospace systems, controls, and experimental propulsion.",
   "location": "New York, NY",
   "email": "mansourdoumbia@college.harvard.edu",
+  "phone": "347-364-4481",
 
   "githubUrl": "https://github.com/MansourDoumbia",
   "linkedinUrl": "https://www.linkedin.com/in/mansour-doumbia",
-  "resumeUrl": "assets\\docs\\MansourDoumbiaPortfolioResume.pdf",
+  "resumeUrl": "assets/docs/MansourDoumbiaPortfolioResume.pdf",
 
-  "about": "I’m a Harvard College student studying Mechanical Engineering and Neuroscience. My work emphasizes practical fabrication, hardware integration, and analysis workflows that translate into testable engineering decisions.",
+  "about": "I am a Harvard College student pursuing an S.B. in Mechanical Engineering with a Neuroscience secondary. My work centers on mechanical design, hardware integration, controls, RF sensing, and simulation for systems that can be built, tested, and revised.",
+
+  "education": {
+    "school": "Harvard University",
+    "location": "Cambridge, MA",
+    "degree": "S.B. Mechanical Engineering; Neuroscience Secondary",
+    "expected": "Expected 2028",
+    "gpa": "3.7/4.0"
+  },
 
   "quickFacts": [
-    "PCB + BMS work (Harvard Robotics Club)",
-    "CubeSat space hardware (Harvard SEDS)",
-    "Bayesian modeling (STAN/JAGS)",
-    "GMAT + simulation workflows", 
-    "PointNet Based Deep Learning"
+    "Harvard Mechanical Engineering S.B.",
+    "MIT AeroAstro UWB state estimation",
+    "Carillon RF antenna testing",
+    "NASA L'SPACE final-review mission concept",
+    "Pulsejet and autonomous rocketry builds"
   ],
 
   "strengths": [
-    "PCB/hardware development for robotics power systems",
-    "Robotics systems and hardware integration",
-    "Satellite systems and space hardware integration",
-    "Computational data analysis and probabilistic modeling"
+    "Mechanical design, CAD, GD&T, DFM/DFA, and FEA for manufacturable hardware",
+    "RF antenna testing, VNA automation, beam-gain optimization, and gimbal integration",
+    "Robotics state estimation, sensing integration, embedded systems, and controls",
+    "Simulation-driven engineering with COMSOL, ANSYS, MATLAB, NASA GMAT, and Python"
   ],
 
   "tools": [
-    "SolidWorks / Fusion 360",
-    "Arduino / Raspberry Pi",
-    "Computational Fluid Dynamics (CFD)",
-    "NetworkX",
+    "SolidWorks",
+    "Fusion 360",
+    "Onshape",
+    "GD&T",
+    "DFM/DFA",
+    "FEA",
+    "COMSOL",
+    "ANSYS",
+    "LTspice",
+    "MATLAB",
+    "PID",
+    "State Estimation",
+    "Embedded Systems",
     "Python",
     "C/C++",
-    "Python",
-    "MATLAB",
+    "Kotlin",
+    "Rust",
     "Git",
-    "LTSpice",
+    "MIG Welding",
     "NASA GMAT"
   ],
 
   "courses": [
-    "CS50 — Introduction to Computer Science",
-    "ES50 — Introduction to Electrical Engineering",
-    "AM105 — Ordinary and Partial Differential Equations",
-    "ES51 — Computer-Aided Machine Design",
-    "ES125 — Mechanical Systems",
-    "ESE160 — Space Science and Engineering",
-    "STAT 110 — Introduction to Statistics and Probability",
-    "NEURO 231 — Computational Neuroscience"
+    "Computer-Aided Design",
+    "Mechanical Systems",
+    "Thermodynamics",
+    "Control Systems",
+    "Space Science and Engineering"
+  ],
+
+  "experience": [
+    {
+      "org": "MIT AeroAstro",
+      "role": "Researcher",
+      "location": "Cambridge, MA",
+      "dates": "August 2026 - Present",
+      "bullets": [
+        "Developing a state-estimation system for encoderless field robots using ultra-wideband antennas.",
+        "Integrating RF sensing, modeling, and hardware testing to estimate joint states and accurate 3D positions."
+      ]
+    },
+    {
+      "org": "Carillon Technologies",
+      "role": "Mechanical Engineering Intern",
+      "location": "New Haven, CT",
+      "dates": "May 2026 - August 2026",
+      "bullets": [
+        "Designed antenna test jigs and mounts in SolidWorks, produced technical drawings, and used FEA to verify displacement under compressive loading.",
+        "Decreased sidelobe noise levels 8-10 dB and improved antenna gain 10-15 dB by building Python closed-loop VNA/gimbal software for +/-60 degree azimuth and +/-40 degree elevation scans.",
+        "Modeled liquid-crystal dielectric tensors across PCB structures in COMSOL and drove DFM/DFA changes for voltage-controlled beam pointing.",
+        "Reduced a 38,000-point Ka-band antenna scan from about 3 hours to about 1 hour by automating VNA data acquisition and gimbal motion."
+      ]
+    },
+    {
+      "org": "NASA L'SPACE",
+      "role": "Mechanical Team, Administrative Lead",
+      "location": "Remote",
+      "dates": "August 2025 - May 2026",
+      "bullets": [
+        "Secured $10k in funding and co-led an 8-person team to develop a 40-page mission concept selected for final review by NASA.",
+        "Aided design and prototyping of a multi-robot system, creating CAD with GD&T while integrating actuators and sensors."
+      ]
+    },
+    {
+      "org": "Harvard University Biorobotics Lab",
+      "role": "Undergraduate Researcher",
+      "location": "Cambridge, MA",
+      "dates": "August 2025 - January 2026",
+      "bullets": [
+        "Improved terrain classification accuracy from 85% to 92% for robotic navigation by developing a PointNet-based ML model."
+      ]
+    },
+    {
+      "org": "Minerva.AI",
+      "role": "Co-founder and Head Designer",
+      "location": "New York, NY",
+      "dates": "May 2025 - September 2025",
+      "bullets": [
+        "Built an identity-verification and information-retrieval prototype with under 300 ms latency using Kotlin and C++ for XREAL AR glasses.",
+        "Integrated OpenAI Whisper and a TensorFlow/Keras Siamese network; raised $10k in pre-seed funding and engaged strategic stakeholders including IQT."
+      ]
+    },
+    {
+      "org": "Harvard University Satellite Team",
+      "role": "Mechanical Subteam",
+      "location": "Boston, MA",
+      "dates": "January 2025 - May 2025",
+      "bullets": [
+        "Wrote NASA GMAT scripts to simulate satellite orbital and atmospheric trajectories, verifying mission feasibility and lifespan."
+      ]
+    },
+    {
+      "org": "Brothers Auto-Repair Shop",
+      "role": "Bodyworker and Customer Service",
+      "location": "New York, NY",
+      "dates": "September 2021 - September 2024",
+      "bullets": [
+        "Performed auto-body repairs including MIG welding, panel alignment, and metal shaping to restore damaged vehicles."
+      ]
+    }
   ]
 }

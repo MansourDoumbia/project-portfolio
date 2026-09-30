@@ -1,139 +1,258 @@
 {
   "projects": [
     {
-      "id": "cubesat-adcs",
-      "title": "CubeSat ADCS Concept and Simulation",
-      "org": "Personal / Harvard Satellite Team (SEDS)",
-      "role": "Mechanical Subteam",
-      "dates": "2025",
-      "summary": "Attitude determination and control system concept development and simulation workflow for a 3U-class CubeSat mission.",
-      "tags": ["Aerospace", "Simulation", "Systems Engineering"],
-      "tools": ["MATLAB", "GMAT", "Python"],
+      "id": "uwb-field-robot-state-estimation",
+      "title": "UWB State Estimation for Encoderless Field Robots",
+      "org": "MIT AeroAstro",
+      "role": "Researcher",
+      "dates": "2026 - Present",
+      "sortKey": "2026-08",
+      "summary": "State-estimation research for field robots without built-in positional measurements, using ultra-wideband antennas and RF sensing.",
+      "tags": ["Robotics", "State Estimation", "RF Sensing", "Hardware Testing"],
+      "tools": ["UWB", "RF Sensing", "Modeling", "Python", "Hardware Testing"],
+      "photos": [],
+      "videos": [],
+      "whatIDid": [
+        "Developing a state-estimation system for encoderless field robots using ultra-wideband antennas.",
+        "Integrating RF sensing, modeling, and hardware testing to estimate joint states and accurate 3D positions.",
+        "Building the sensing and validation workflow around robots that do not provide native positional measurements."
+      ],
+      "results": [
+        "Established the technical direction for RF-based state estimation on encoderless robotic hardware.",
+        "Current work is in active research and test integration."
+      ],
+      "links": [],
+      "featured": false
+    },
+    {
+      "id": "antenna-test-automation",
+      "title": "Closed-Loop Antenna Test Automation",
+      "org": "Carillon Technologies",
+      "role": "Mechanical Engineering Intern",
+      "dates": "2026",
+      "sortKey": "2026-05",
+      "summary": "Mechanical test hardware, RF measurement automation, and COMSOL modeling for voltage-controlled antenna beam pointing.",
+      "tags": ["RF Systems", "Mechanical Design", "Automation", "COMSOL", "DFM/DFA"],
+      "tools": ["SolidWorks", "Python", "VNA", "Gimbal", "COMSOL", "FEA"],
+      "photos": [],
+      "videos": [],
+      "whatIDid": [
+        "Designed antenna test jigs and mounts in SolidWorks, produced technical drawings, and used FEA to verify displacement under compressive loading.",
+        "Built Python closed-loop VNA/gimbal software for +/-60 degree azimuth and +/-40 degree elevation antenna scans.",
+        "Modeled liquid-crystal dielectric tensors across PCB structures in COMSOL to validate electromagnetic behavior.",
+        "Used load analysis and DFM/DFA feedback to evaluate PCB manufacturability and voltage-controlled beam-pointing design changes."
+      ],
+      "results": [
+        "Reduced sidelobe noise levels 8-10 dB and improved antenna gain 10-15 dB.",
+        "Reduced a 38,000-point Ka-band antenna scan from about 3 hours to about 1 hour.",
+        "Verified gain and pointing against 2D radiation patterns."
+      ],
+      "links": [],
+      "featured": false
+    },
+    {
+      "id": "nasa-lspace",
+      "title": "NASA L'SPACE Swarm Robotics",
+      "org": "NASA L'SPACE Program",
+      "role": "Mechanical Team, Administrative Lead",
+      "dates": "2025 - 2026",
+      "sortKey": "2025-08",
+      "summary": "Multi-robot lunar mission concept selected for final NASA review, combining mechanical design, system trade studies, CAD, and team leadership.",
+      "highlights": [
+        "Secured $10k in funding and co-led an 8-person team",
+        "Developed a 40-page mission concept selected for final review by NASA",
+        "Aided design and prototyping of a multi-robot system using CAD with GD&T",
+        "Integrated actuator and sensor constraints into the mechanical concept"
+      ],
+      "tags": [
+        "Swarm Robotics",
+        "Mission Concept Development",
+        "Systems Engineering",
+        "Mechanical Design",
+        "Technical Communications",
+        "Project Leadership"
+      ],
+      "tools": ["CAD", "GD&T", "Python", "MATLAB", "GMAT", "Excel", "PowerPoint"],
       "photos": [
         {
-          "src": "assets/img/projects/cubesat-adcs/hero.jpg",
-          "alt": "CubeSat ADCS concept illustration",
-          "caption": "ADCS concept overview and end-to-end simulation workflow.",
+          "src": "assets/photos/l'space roles.png",
+          "alt": "Roles in NASA L'SPACE project"
+        },
+        {
+          "src": "assets/photos/NASA_L'SPACE_QuadChart.png",
+          "alt": "Quad Chart presentation",
+          "caption": "Mission concept overview presented during final review.",
           "hero": true
         },
         {
-          "src": "assets/img/projects/cubesat-adcs/block-diagram.png",
-          "alt": "ADCS block diagram",
-          "caption": "Control loop block diagram used for architecture evaluation."
+          "src": "assets/photos/Screenshot 2026-01-28 194659.png",
+          "alt": "System trade study and decision matrix"
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Defined attitude control requirements and pointing error budget for a 3U CubeSat mission concept.",
-        "Developed a repeatable simulation workflow to evaluate candidate sensor and actuator configurations under representative orbital disturbance scenarios.",
-        "Documented modeling assumptions, test cases, and verification checks to support consistent architecture comparison."
+        "Co-led an 8-person team through mission concept development for Lunar and Planetary Servicing Swarm Robots.",
+        "Contributed to mechanical design and prototyping of a heterogeneous multi-robot system.",
+        "Created CAD with GD&T while integrating actuator, sensor, mobility, modular interface, and self-assembly constraints.",
+        "Supported cross-subsystem trade studies and converted design outcomes into executive recommendations."
       ],
       "results": [
-        "Produced a quantitative down-select matrix comparing multiple ADCS architectures.",
-        "Validated system stability and pointing performance against defined mission scenarios in simulation."
+        "Secured $10k in funding for the concept.",
+        "Delivered a 40-page mission concept selected for final NASA review.",
+        "Produced an integrated mechanical concept for modular tool exchange, cooperative manipulation, and swarm self-assembly."
       ],
-      "links": [
-        { "label": "One-page technical summary (PDF)", "href": "assets/links/cubesat-adcs-summary.pdf" }
-      ],
-      "featured": false
-    },
-    {
-  "id": "nasa-lspace",
-  "title": "NASA L'SPACE Swarm Robotics",
-  "org": "NASA L’SPACE Program",
-  "role": "Administrative Lead",
-  "dates": "2025 - 2026",
-  "summary": "Secured $10K in program funding and co-led an 8-person team to develop a 40-page mission concept selected for final review by NASA engineers. Coordinated a 12-advisor review cadence, drove SME outreach.",
-  "highlights": [
-    "Won $10K in funding; co-led an 8-person team through end-to-end mission concept development",
-    "Produced a 40-page mission concept selected for final review by NASA engineers out of ~60 teams",
-    "Facilitated design trade-off discussions with 12 advisors and condensed outcomes into executive recommendations",
-    "Established and managed communications with SMEs ranging from faculty advisors to military officials"
-  ],
-  "tags": [
-    "Swarm Robotics",
-    "Mission Concept Development",
-    "Systems Engineering",
-    "Trade Studies",
-    "Technical Communications",
-    "Project Leadership"
-  ],
-  
-  "tools": ["Python", "MATLAB", "GMAT", "Excel", "PowerPoint"],
-  "photos": [
-    {
-      "src": "assets\\photos\\l'space roles.png",
-      "alt": "Roles in NASA L'SPACE project"
-    },
-    {
-      "src": "assets/photos/NASA_L'SPACE_QuadChart.png",
-      "alt": "Quad Chart presentation",
-      "caption": "Presented mission concept overview to NASA engineers during final review.",
-      "hero": true
-    },
-    {
-      "src": "assets/photos/Screenshot 2026-01-28 194659.png",
-      "alt": "System trade study and decision matrix"
-    }
-  ],
-      "whatIDid": [
-  "Served as Mechanical Engineering Coordinator for the Lunar & Planetary Servicing Swarm Robots project, leading mechanical design efforts and cross-subsystem coordination for the heterogeneous swarm.",
-  "Led the mechanical design and hardware integration of the swarm robots, including chassis architecture, actuator and mobility system selection, structural load paths, and modular interfaces for tools and self-assembling units.",
-  "Defined system-level functional requirements and key performance parameters—such as mobility, load capacity, autonomy support, communication robustness, and self-assembly constraints—in collaboration with autonomy and software leads.",
-  "Developed and documented a simulation-informed evaluation framework to assess swarm coordination, navigation stability, and self-assembly behavior under representative lunar terrain and communication scenarios."
-],
-"results": [
-  "Delivered an integrated mechanical architecture enabling modular tool exchange, cooperative manipulation, and reliable self-assembly across swarm robot types.",
-  "Supported simulation- and trade-study-based validation demonstrating stable swarm coordination, fault-tolerant task execution, and mechanically feasible operation against defined mission scenarios."
-],
       "links": [
         { "label": "Team 11 Proposal", "href": "assets/docs/Team 11 Proposal - Lunar & Planetary Servicing Swarm Robots.pdf" }
       ],
       "featured": true,
       "featuredOrder": 1
-},
+    },
     {
       "id": "pulsejet-engine",
-      "title": "Pulsejet Engine Design and Testing",
+      "title": "Pulsejet Propane Engine",
       "org": "Personal / Makerspace NYC",
       "role": "Project Lead",
       "dates": "2025",
-      "summary": "Design, fabrication, and bench testing of a propane-fueled pulsejet engine prototype.",
-      "tags": ["Propulsion", "Fluid Dynamics", "Mechanical Fabrication"],
-      "tools": ["CAD", "Python", "C/C++"],
+      "sortKey": "2025-06",
+      "summary": "Design, manufacture, and bench testing of a propane-fueled pulsejet engine with closed-loop propellant delivery.",
+      "tags": ["Propulsion", "Combustion", "Mechanical Fabrication", "Simulation"],
+      "tools": ["CAD", "ANSYS", "COMSOL", "Machining", "Welding"],
       "photos": [
         {
           "src": "assets/photos/Propane-Schematic.jpg",
           "alt": "Pulsejet engine schematic",
           "caption": "Bench test configuration for the pulsejet prototype.",
           "hero": true
-        },
-        {
-          "src": "assets/img/projects/pulsejet-engine/cad.png",
-          "alt": "CAD model of pulsejet engine",
-          "caption": "CAD model used to iterate combustion chamber and inlet geometry prior to fabrication."
         }
       ],
       "videos": [],
       "whatIDid": [
-        "Designed and fabricated a propane-fueled pulsejet prototype using manual machining, welding, and assembly processes.",
-        "Designed a controlled propellant delivery system to regulate flow rate and inlet pressure during operation.",
-        "Conducted bench testing to evaluate ignition stability, operating behavior, and thermal response."
+        "Designed, manufactured, and bench-tested a propane-fueled pulsejet engine with a closed-loop propellant delivery system.",
+        "Iterated the combustion structure through 6 hot-fire tests and performed failure analysis after each test.",
+        "Used ANSYS and COMSOL to model acoustic resonance and pressure antinodes, then translated findings into chamber geometry changes."
       ],
       "results": [
-        "Achieved sustained pulsejet operation during bench testing.",
-        "Identified combustion stability and thermal constraints that informed iterative design refinements."
+        "Achieved bench-test operation while keeping exhaust temperatures under about 600 C.",
+        "Used hot-fire test evidence and simulation results to guide combustion chamber refinements."
       ],
       "links": [
         { "label": "Makerspace NYC", "href": "https://www.makerspace.nyc/" },
         { "label": "Design equations", "href": "assets/docs/cohetes_f1c95d6e472d.pdf" },
-        {
-          "label": "Project Files",
-          "href": "https://drive.google.com/drive/folders/1c0qLt7m4__hC5UI1eSCV0M2ZMeOmGJcU"
-        }
+        { "label": "Project files", "href": "https://drive.google.com/drive/folders/1c0qLt7m4__hC5UI1eSCV0M2ZMeOmGJcU" }
       ],
       "featured": true,
       "featuredOrder": 2
+    },
+    {
+      "id": "model-rocketry-tvc-airbrakes",
+      "title": "Autonomous Control for Model Rocketry",
+      "org": "Up And Above Space Corp",
+      "role": "President",
+      "dates": "2023 - 2025",
+      "sortKey": "2025-05",
+      "summary": "Embedded control systems for reusable model rockets using thrust vector control, deployable airbrakes, PID logic, and pressure-based altitude sensing.",
+      "tags": ["Controls", "Embedded Systems", "Aerodynamics", "Rocketry"],
+      "tools": ["Arduino", "OpenRocket", "PID", "Altimeter Telemetry", "CFD"],
+      "photos": [
+        {
+          "src": "assets/photos/IMG_0183_fbba2f961060 (1).jpg",
+          "alt": "Model rocket with control systems",
+          "caption": "Reusable rocket integrating TVC and airbrake subsystems.",
+          "hero": true
+        }
+      ],
+      "videos": [
+        {
+          "label": "Flight test video",
+          "youtubeId": "Pr0mVHKWC3w",
+          "startSeconds": 6
+        }
+      ],
+      "whatIDid": [
+        "Designed and flight-tested embedded systems for reusable model rockets using PID and pressure-based altitude sensing.",
+        "Integrated thrust vector control and deployable airbrakes for real-time autonomous trajectory correction and altitude control.",
+        "Used a 20 Hz Pnut altimeter for telemetry across iterative flight tests."
+      ],
+      "results": [
+        "Improved mean altitude error by about 10% across 20+ flights.",
+        "Enabled real-time trajectory correction during powered flight through thrust vectoring.",
+        "Improved altitude control using combined TVC and airbrake strategies."
+      ],
+      "links": [
+        { "label": "GitHub repository", "href": "https://github.com/MansourDoumbia/TVCs" },
+        { "label": "Flight video", "href": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s" }
+      ],
+      "featured": true,
+      "featuredOrder": 3
+    },
+    {
+      "id": "biorobotics-terrain-classification",
+      "title": "PointNet Terrain Classification for Robotic Navigation",
+      "org": "Harvard University Biorobotics Lab",
+      "role": "Undergraduate Researcher",
+      "dates": "2025 - 2026",
+      "sortKey": "2025-08",
+      "summary": "PointNet-based machine-learning model for terrain classification in robotic navigation workflows.",
+      "tags": ["Robotics", "Machine Learning", "PointNet", "Navigation"],
+      "tools": ["Python", "PointNet", "TensorFlow/Keras", "Data Analysis"],
+      "photos": [],
+      "videos": [],
+      "whatIDid": [
+        "Developed a PointNet-based ML model for terrain classification in robotic navigation.",
+        "Iterated training and evaluation to improve classification performance."
+      ],
+      "results": [
+        "Improved terrain classification accuracy from 85% to 92%."
+      ],
+      "links": [],
+      "featured": false
+    },
+    {
+      "id": "minerva-ai-ar-prototype",
+      "title": "Minerva.AI AR Identity Verification Prototype",
+      "org": "Minerva.AI",
+      "role": "Co-founder and Head Designer",
+      "dates": "2025",
+      "sortKey": "2025-05",
+      "summary": "Identity-verification and information-retrieval prototype for XREAL AR glasses with low-latency model integration.",
+      "tags": ["AR", "Machine Learning", "Identity Verification", "Product Prototype"],
+      "tools": ["Kotlin", "C++", "OpenAI Whisper", "TensorFlow/Keras", "Siamese Network"],
+      "photos": [],
+      "videos": [],
+      "whatIDid": [
+        "Built an identity-verification and information-retrieval prototype for XREAL AR glasses using Kotlin and C++.",
+        "Integrated OpenAI Whisper and a TensorFlow/Keras Siamese network into the prototype.",
+        "Led early product design while engaging strategic stakeholders."
+      ],
+      "results": [
+        "Reached under 300 ms latency in the prototype workflow.",
+        "Raised $10k in pre-seed funding and engaged stakeholders including IQT."
+      ],
+      "links": [],
+      "featured": false
+    },
+    {
+      "id": "satellite-gmat-trajectory",
+      "title": "Satellite Orbital and Atmospheric Trajectory Simulation",
+      "org": "Harvard University Satellite Team",
+      "role": "Mechanical Subteam",
+      "dates": "2025",
+      "sortKey": "2025-01",
+      "summary": "NASA GMAT simulation work for satellite orbital and atmospheric trajectories to verify mission feasibility and lifespan.",
+      "tags": ["Aerospace", "Simulation", "Orbital Mechanics", "Mission Feasibility"],
+      "tools": ["NASA GMAT", "MATLAB", "Python"],
+      "photos": [],
+      "videos": [],
+      "whatIDid": [
+        "Wrote NASA GMAT scripts to simulate satellite orbital and atmospheric trajectories.",
+        "Evaluated trajectory behavior against mission feasibility and lifespan constraints.",
+        "Documented assumptions and simulation outputs for mechanical subteam review."
+      ],
+      "results": [
+        "Verified mission feasibility and projected lifespan through simulation workflows."
+      ],
+      "links": [],
+      "featured": false
     },
     {
       "id": "mind-controlled-rover",
@@ -141,6 +260,7 @@
       "org": "ES50 Final Project",
       "role": "Designer and Developer",
       "dates": "2025",
+      "sortKey": "2025-01",
       "summary": "Embedded system that processes EEG and EMG bioelectric signals to control a mobile robotic platform.",
       "tags": ["Signal Processing", "Embedded Systems", "Controls"],
       "tools": ["Arduino", "MATLAB"],
@@ -176,7 +296,7 @@
         { "label": "Project report", "href": "assets/docs/ES50 Final Project Report.pdf" }
       ],
       "featured": true,
-      "featuredOrder": 3
+      "featuredOrder": 4
     },
     {
       "id": "studdy-buddy-app",
@@ -184,6 +304,7 @@
       "org": "CS50 Final Project",
       "role": "Developer and Designer",
       "dates": "2025",
+      "sortKey": "2025-01",
       "summary": "Full-stack educational web application designed to improve study engagement through interactive game-based review modes.",
       "tags": ["Full Stack Development", "Databases", "UI/UX"],
       "tools": ["HTML", "CSS", "JavaScript", "Flask", "SQL"],
@@ -221,6 +342,7 @@
       "org": "Personal",
       "role": "Designer and Fabricator",
       "dates": "2025",
+      "sortKey": "2025-01",
       "summary": "Design and fabrication of a high-speed rotational system capable of launching projectiles using stored rotational energy.",
       "tags": ["Mechanical Design", "Controls", "Fabrication"],
       "tools": ["Fusion 360", "Arduino", "Lathe"],
@@ -250,46 +372,8 @@
       "links": [
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1e768-QQSb0Xv7KeCekq8Os64ijGV0Bzn" }
       ],
-      "featured": true
-    },
-    {
-      "id": "model-rocketry-tvc-airbrakes",
-      "title": "Autonomous Control Systems for Model Rocketry",
-      "org": "Up And Above Space Corp",
-      "role": "President",
-      "dates": "2023-2025",
-      "summary": "Design and flight testing of reusable model rockets with embedded thrust vector control and deployable airbrake systems.",
-      "tags": ["Controls", "Embedded Systems", "Aerodynamics"],
-      "tools": ["Arduino", "OpenRocket", "CFD"],
-      "photos": [
-        {
-          "src": "assets/photos/IMG_0183_fbba2f961060 (1).jpg",
-          "alt": "Model rocket with control systems",
-          "caption": "Reusable rocket integrating TVC and airbrake subsystems.",
-          "hero": true
-        }
-      ],
-      "videos": [
-        {
-          "label": "Flight test video",
-          "youtubeId": "Pr0mVHKWC3w",
-          "startSeconds": 6
-        }
-      ],
-      "whatIDid": [
-        "Designed and built a servo-actuated gimbal system to provide thrust vector control during powered ascent.",
-        "Engineered deployable airbrakes to increase drag near apogee while maintaining vehicle stability.",
-        "Integrated embedded control logic coordinating propulsion-based and aerodynamic control across flight phases."
-      ],
-      "results": [
-        "Enabled real-time trajectory correction during powered flight through thrust vectoring.",
-        "Improved ascent consistency and altitude control using combined TVC and airbrake strategies."
-      ],
-      "links": [
-        { "label": "GitHub repository", "href": "https://github.com/MansourDoumbia/TVCs" },
-        { "label": "Flight video", "href": "https://www.youtube.com/watch?v=Pr0mVHKWC3w&t=6s" }
-      ],
-      "featured": true
+      "featured": true,
+      "featuredOrder": 5
     },
     {
       "id": "egg-gang",
@@ -297,6 +381,7 @@
       "org": "ES125 Final Project",
       "role": "Designer",
       "dates": "2025",
+      "sortKey": "2025-01",
       "summary": "Design and validation of a spring-damper impact mitigation system to reduce peak acceleration during drop tests.",
       "tags": ["Mechanical Vibrations", "Dynamics", "Design"],
       "tools": ["Fusion 360", "3D Printing", "Laser Cutting"],
@@ -323,7 +408,8 @@
         { "label": "Presentation", "href": "https://docs.google.com/presentation/d/1AG6dhsprdf5cDCbdSHodlncWblbGL_fK4fhmDjoYZTw/edit" },
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1AU0ZtB9WOb-cLBf2XZcf2o2CMr5qqloX" }
       ],
-      "featured": true
+      "featured": true,
+      "featuredOrder": 6
     }
   ]
 }

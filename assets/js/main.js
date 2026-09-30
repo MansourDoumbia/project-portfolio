@@ -27,13 +27,11 @@ function pickProjectThumb(p) {
 function youtubeUrlFromVideo(v) {
   if (!v) return null;
 
-  // Preferred schema: { youtubeId, label?, startSeconds? }
   if (v.youtubeId) {
     const t = Number.isFinite(v.startSeconds) ? Math.max(0, v.startSeconds) : null;
     return `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}${t ? `&t=${t}s` : ""}`;
   }
 
-  // Fallback schema: { url } or { href }
   if (v.url) return v.url;
   if (v.href) return v.href;
 
@@ -45,7 +43,6 @@ function projectCard(p) {
   a.className = "card project-card";
   a.href = `project.html?id=${encodeURIComponent(p.id || "")}`;
 
-  // Thumbnail (small)
   const thumbSrc = pickProjectThumb(p);
   if (thumbSrc) {
     const img = document.createElement("img");
@@ -59,7 +56,6 @@ function projectCard(p) {
     a.appendChild(img);
   }
 
-  // Content column
   const content = document.createElement("div");
 
   const h = document.createElement("h3");
@@ -67,7 +63,7 @@ function projectCard(p) {
 
   const meta = document.createElement("p");
   meta.className = "muted small";
-  meta.textContent = [p.org, p.role, p.dates].filter(Boolean).join(" • ");
+  meta.textContent = [p.org, p.role, p.dates].filter(Boolean).join(" | ");
 
   const s = document.createElement("p");
   s.className = "muted";
@@ -77,7 +73,6 @@ function projectCard(p) {
   chipsWrap.className = "chips";
   (p.tags || []).slice(0, 5).forEach(t => chipsWrap.appendChild(chip(t)));
 
-  // NEW: video indicator + optional Watch link
   const vids = Array.isArray(p.videos) ? p.videos : [];
   if (vids.length) {
     chipsWrap.appendChild(chip("Video"));
@@ -90,10 +85,7 @@ function projectCard(p) {
       watch.rel = "noopener";
       watch.className = "chip";
       watch.textContent = "Watch";
-
-      // prevent outer card click
       watch.addEventListener("click", (e) => e.stopPropagation());
-
       chipsWrap.appendChild(watch);
     }
   }
@@ -107,12 +99,67 @@ function projectCard(p) {
   return a;
 }
 
+function renderEducation(site) {
+  const educationCard = document.getElementById("educationCard");
+  const educationText = document.getElementById("educationText");
+  const ed = site.education || {};
+
+  if (!educationCard || !educationText) return;
+
+  const line = [
+    ed.school,
+    ed.degree,
+    ed.expected,
+    ed.gpa ? `GPA: ${ed.gpa}` : ""
+  ].filter(Boolean).join(" | ");
+
+  if (line) {
+    educationText.textContent = line;
+  } else {
+    educationCard.style.display = "none";
+  }
+}
+
+function experienceCard(item) {
+  const article = document.createElement("article");
+  article.className = "card experience-card";
+
+  const header = document.createElement("div");
+  header.className = "experience-card-header";
+
+  const titleWrap = document.createElement("div");
+  const h = document.createElement("h3");
+  h.textContent = item.org || "";
+  const role = document.createElement("p");
+  role.className = "muted small";
+  role.textContent = [item.role, item.location].filter(Boolean).join(" | ");
+  titleWrap.appendChild(h);
+  titleWrap.appendChild(role);
+
+  const dates = document.createElement("p");
+  dates.className = "muted small experience-dates";
+  dates.textContent = item.dates || "";
+
+  header.appendChild(titleWrap);
+  header.appendChild(dates);
+  article.appendChild(header);
+
+  const list = document.createElement("ul");
+  list.className = "list";
+  (item.bullets || []).forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    list.appendChild(li);
+  });
+  article.appendChild(list);
+
+  return article;
+}
+
 (async function init() {
-  // Footer year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Site content
   const site = await loadJSON("data/site.json");
 
   const brand = document.getElementById("brandName");
@@ -133,6 +180,13 @@ function projectCard(p) {
     const email = site.email || "";
     emailLink.textContent = email || "you@example.com";
     emailLink.href = email ? `mailto:${email}` : "#";
+  }
+
+  const phoneLink = document.getElementById("phoneLink");
+  if (phoneLink) {
+    const phone = site.phone || "";
+    phoneLink.textContent = phone || "";
+    phoneLink.href = phone ? `tel:${phone.replace(/[^\d+]/g, "")}` : "#";
   }
 
   const locationText = document.getElementById("locationText");
@@ -169,7 +223,8 @@ function projectCard(p) {
     site.quickFacts.forEach(q => quickFacts.appendChild(pill(q)));
   }
 
-  // Courses (hide card if none)
+  renderEducation(site);
+
   const coursesCard = document.getElementById("coursesCard");
   const coursesList = document.getElementById("coursesList");
   if (coursesCard && coursesList) {
@@ -185,16 +240,17 @@ function projectCard(p) {
     }
   }
 
-  // Featured projects
+  const experienceList = document.getElementById("experienceList");
+  if (experienceList && Array.isArray(site.experience)) {
+    experienceList.innerHTML = "";
+    site.experience.forEach(item => experienceList.appendChild(experienceCard(item)));
+  }
+
   const data = await loadJSON("data/projects.json");
   const allProjects = Array.isArray(data.projects) ? data.projects : [];
 
   let featured = allProjects.filter(p => p.featured);
-
-  // Order by featuredOrder if present
   featured.sort((a, b) => (a.featuredOrder ?? 999) - (b.featuredOrder ?? 999));
-
-  // Fallback if none marked featured
   if (!featured.length) featured = allProjects.slice(0, 6);
 
   const grid = document.getElementById("featuredGrid");

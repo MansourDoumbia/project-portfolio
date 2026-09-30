@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Portfolio</title>
-  <meta name="description" content="Mechanical Engineering Project Portfolio" />
+  <title>Mansour Doumbia | Project Portfolio</title>
+  <meta name="description" content="Mansour Doumbia's mechanical engineering project portfolio." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -12,9 +12,10 @@
 
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html" id="brandName">Portfolio</a>
+      <a class="brand" href="index.html" id="brandName">M. Doumbia</a>
       <div class="nav-links">
         <a href="projects.html">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
@@ -25,22 +26,19 @@
     <section class="hero">
       <div class="container">
         <div class="hero-row">
-          <!-- Left: Headshot -->
           <div class="hero-left" aria-label="Headshot">
-            <!-- Replace src with your image path -->
             <img
               class="headshot"
-              src="assets\photos\linkedin_photo.jpg"
-              alt="Headshot"
+              src="assets/photos/linkedin_photo.jpg"
+              alt="Mansour Doumbia headshot"
             />
           </div>
 
-          <!-- Right: Text -->
           <div class="hero-right">
-            <p class="eyebrow" id="eyebrow">Mechanical Engineering</p>
-            <h1 id="headline">Project Portfolio</h1>
+            <p class="eyebrow" id="eyebrow">Mechanical Engineering | Robotics | Aerospace</p>
+            <h1 id="headline">Mansour Doumbia - Project Portfolio</h1>
             <p class="lede" id="tagline">
-              Design, simulation, and hands-on build work across aerospace, robotics, and electronics.
+              Tested hardware, simulation, and controls work across robotics, RF systems, aerospace, and propulsion.
             </p>
 
             <div class="cta-row">
@@ -63,13 +61,23 @@
       </div>
     </section>
 
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p>Research, internship, and lab work with emphasis on tested mechanical and sensing systems.</p>
+        </div>
+        <div class="experience-list" id="experienceList" aria-live="polite"></div>
+      </div>
+    </section>
+
     <section class="section" id="about">
       <div class="container">
         <div class="section-header">
           <h2>About</h2>
           <p id="aboutText">
-            I love problem solving and modeling real-world systems through both
-            simulation and hands-on work. My experience spans mechanical design, reaching even to finance and consulting
+            I am a Harvard mechanical engineering student focused on practical fabrication,
+            controls, RF sensing, and simulation-backed engineering decisions.
           </p>
         </div>
 
@@ -81,12 +89,15 @@
 
           <div class="card">
             <h3>Tooling</h3>
-            <p class="muted"></p>
             <div class="chips" id="toolsChips"></div>
           </div>
         </div>
 
-        <!-- Coursework card -->
+        <div class="card" id="educationCard" style="margin-top:14px;">
+          <h3>Education</h3>
+          <p id="educationText" class="muted"></p>
+        </div>
+
         <div class="card" id="coursesCard" style="margin-top:14px;">
           <h3>Key STEM coursework</h3>
           <ul class="list" id="coursesList"></ul>
@@ -105,11 +116,15 @@
           <div class="contact-row">
             <div>
               <p class="label">Email</p>
-              <a id="emailLink" href="#">you@example.com</a>
+              <a id="emailLink" href="#">mansourdoumbia@college.harvard.edu</a>
             </div>
             <div>
               <p class="label">Location</p>
-              <p id="locationText">City, State</p>
+              <p id="locationText">New York, NY</p>
+            </div>
+            <div>
+              <p class="label">Phone</p>
+              <a id="phoneLink" href="#">347-364-4481</a>
             </div>
             <div>
               <p class="label">Links</p>
@@ -126,7 +141,7 @@
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <p class="muted small" id="footerText">© <span id="year"></span> Portfolio</p>
+      <p class="muted small" id="footerText">&copy; <span id="year"></span> Mansour Doumbia</p>
       <a class="muted small" href="projects.html">All projects</a>
     </div>
   </footer>

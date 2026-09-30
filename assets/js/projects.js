@@ -14,13 +14,11 @@ function chip(text) {
 function youtubeUrlFromVideo(v) {
   if (!v) return null;
 
-  // Preferred schema: { youtubeId, label?, startSeconds? }
   if (v.youtubeId) {
     const t = Number.isFinite(v.startSeconds) ? Math.max(0, v.startSeconds) : null;
     return `https://www.youtube.com/watch?v=${encodeURIComponent(v.youtubeId)}${t ? `&t=${t}s` : ""}`;
   }
 
-  // Fallback schema: { url } or { href }
   if (v.url) return v.url;
   if (v.href) return v.href;
 
@@ -37,7 +35,7 @@ function projectCard(p) {
 
   const meta = document.createElement("p");
   meta.className = "muted small";
-  meta.textContent = [p.org, p.role, p.dates].filter(Boolean).join(" • ");
+  meta.textContent = [p.org, p.role, p.dates].filter(Boolean).join(" | ");
 
   const s = document.createElement("p");
   s.className = "muted";
@@ -47,7 +45,6 @@ function projectCard(p) {
   chips.className = "chips";
   (p.tags || []).slice(0, 6).forEach(t => chips.appendChild(chip(t)));
 
-  // NEW: video indicator + optional "Watch" chip-link
   const vids = Array.isArray(p.videos) ? p.videos : [];
   if (vids.length) {
     chips.appendChild(chip("Video"));
@@ -58,12 +55,9 @@ function projectCard(p) {
       watch.href = firstUrl;
       watch.target = "_blank";
       watch.rel = "noopener";
-      watch.className = "chip"; // reuse chip styling
+      watch.className = "chip";
       watch.textContent = "Watch";
-
-      // Prevent outer card link from firing when clicking Watch
       watch.addEventListener("click", (e) => e.stopPropagation());
-
       chips.appendChild(watch);
     }
   }
@@ -85,16 +79,13 @@ function normalize(s) {
   return (s || "").toLowerCase().trim();
 }
 
-// Optional: derive a sortable key if sortKey is missing.
-// Prefers sortKey, then tries YYYY or YYYY-MM found in dates, else empty string.
 function getRecentKey(p) {
   if (p.sortKey) return String(p.sortKey);
   const d = String(p.dates || "");
-  const m = d.match(/\b(20\d{2})(?:[-/](0[1-9]|1[0-2]))?\b/); // matches 2024 or 2024-05
-  if (!m) return "";
-  const year = m[1];
-  const month = m[2] || "01";
-  return `${year}-${month}`;
+  const matches = [...d.matchAll(/\b(20\d{2})(?:[-/](0[1-9]|1[0-2]))?\b/g)];
+  if (!matches.length) return "";
+  const last = matches[matches.length - 1];
+  return `${last[1]}-${last[2] || "01"}`;
 }
 
 (async function init() {
@@ -106,7 +97,6 @@ function getRecentKey(p) {
     const site = await loadJSON("data/site.json");
     if (brand) brand.textContent = site.nameShort || "Portfolio";
   } catch (e) {
-    // Non-fatal: allow projects page to work even if site.json is missing
     console.warn(e);
   }
 
@@ -121,8 +111,6 @@ function getRecentKey(p) {
   }
 
   const data = await loadJSON("data/projects.json");
-
-  // Validate shape
   const projects = Array.isArray(data.projects) ? data.projects : [];
   if (!projects.length) {
     grid.innerHTML =
@@ -134,7 +122,6 @@ function getRecentKey(p) {
     return;
   }
 
-  // Populate tag filter
   uniqueTags(projects).forEach(t => {
     const opt = document.createElement("option");
     opt.value = t;
@@ -164,9 +151,8 @@ function getRecentKey(p) {
     });
 
     if (sort === "title") {
-      filtered.sort((a, b) => (a.title || "").localeCompare(b.title || "")); // A–Z
+      filtered.sort((a, b) => (a.title || "").localeCompare(b.title || ""));
     } else {
-      // "recent": sort by sortKey if present, otherwise derive from dates
       filtered.sort((a, b) => getRecentKey(b).localeCompare(getRecentKey(a)));
     }
 

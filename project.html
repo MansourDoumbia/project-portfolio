@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project</title>
-  <meta name="description" content="Project details" />
+  <title>Project | Mansour Doumbia</title>
+  <meta name="description" content="Engineering project details by Mansour Doumbia." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -12,9 +12,10 @@
 
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html" id="brandName">Portfolio</a>
+      <a class="brand" href="index.html" id="brandName">M. Doumbia</a>
       <div class="nav-links">
         <a href="projects.html">Projects</a>
+        <a href="index.html#experience">Experience</a>
         <a href="index.html#about">About</a>
         <a href="index.html#contact">Contact</a>
       </div>
@@ -23,7 +24,7 @@
 
   <main id="content" class="section">
     <div class="container">
-      <a class="back-link" href="projects.html">← Back to projects</a>
+      <a class="back-link" href="projects.html">&larr; Back to projects</a>
 
       <article class="project" id="projectRoot" aria-live="polite">
         <header class="project-header">
@@ -32,13 +33,11 @@
           <div class="chips" id="pTags"></div>
         </header>
 
-        <!-- Photos (normalized grid only; no big hero image) -->
         <section class="card" id="pPhotosCard">
           <h2>Photos</h2>
           <div class="project-gallery" id="pGallery"></div>
         </section>
 
-        <!-- Videos -->
         <section class="card" id="pVideosCard">
           <h2>Video</h2>
           <div id="pVideos"></div>
@@ -75,7 +74,7 @@
 
   <footer class="site-footer">
     <div class="container footer-row">
-      <p class="muted small" id="footerText">© <span id="year"></span> Portfolio</p>
+      <p class="muted small" id="footerText">&copy; <span id="year"></span> Mansour Doumbia</p>
       <a class="muted small" href="projects.html">All projects</a>
     </div>
   </footer>
@@ -108,7 +107,6 @@
       return a;
     }
 
-    // Normalized gallery item (uses your CSS: .project-photo, .project-photo-img, .project-photo-cap)
     function photoEl(ph) {
       const fig = document.createElement("figure");
       fig.className = "card project-photo";
@@ -133,13 +131,11 @@
     function youtubeEmbedUrl(v) {
       if (!v) return null;
 
-      // Preferred schema: youtubeId + optional startSeconds
       if (v.youtubeId) {
         const t = Number.isFinite(v.startSeconds) ? Math.max(0, v.startSeconds) : null;
         return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.youtubeId)}${t ? `?start=${t}` : ""}`;
       }
 
-      // Fallback: if someone provided a full URL, try to extract v=ID
       const raw = v.url || v.href;
       if (raw) {
         try {
@@ -225,10 +221,10 @@
         return;
       }
 
-      document.title = `${p.title} | Projects`;
+      document.title = `${p.title} | Mansour Doumbia`;
 
       document.getElementById("pTitle").textContent = p.title || "";
-      document.getElementById("pMeta").textContent = [p.org, p.role, p.dates].filter(Boolean).join(" • ");
+      document.getElementById("pMeta").textContent = [p.org, p.role, p.dates].filter(Boolean).join(" | ");
       document.getElementById("pSummary").textContent = p.summary || "";
 
       const tagRoot = document.getElementById("pTags");
@@ -239,16 +235,13 @@
       toolRoot.innerHTML = "";
       (p.tools || []).forEach(t => toolRoot.appendChild(chip(t)));
 
-      // Photos (normalized grid only)
       const photosCard = document.getElementById("pPhotosCard");
       const gallery = document.getElementById("pGallery");
       const photos = Array.isArray(p.photos) ? p.photos : [];
 
       if (photosCard && gallery) {
         if (photos.length) {
-          // Put hero=true first (but still same size), then the rest
           const sorted = [...photos].sort((a, b) => (b.hero ? 1 : 0) - (a.hero ? 1 : 0));
-
           gallery.innerHTML = "";
           sorted.forEach(ph => gallery.appendChild(photoEl(ph)));
         } else {
@@ -256,7 +249,6 @@
         }
       }
 
-      // Videos
       const videosCard = document.getElementById("pVideosCard");
       const videosRoot = document.getElementById("pVideos");
       const vids = Array.isArray(p.videos) ? p.videos : [];
@@ -269,7 +261,6 @@
         }
       }
 
-      // Bullets
       const bullets = document.getElementById("pBullets");
       bullets.innerHTML = "";
       (p.whatIDid || []).forEach(b => {
@@ -278,7 +269,6 @@
         bullets.appendChild(li);
       });
 
-      // Results
       const resultsCard = document.getElementById("pResultsCard");
       const results = document.getElementById("pResults");
       results.innerHTML = "";
@@ -292,7 +282,6 @@
         resultsCard.style.display = "none";
       }
 
-      // Links
       const linksCard = document.getElementById("pLinksCard");
       const links = document.getElementById("pLinks");
       links.innerHTML = "";
