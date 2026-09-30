@@ -319,7 +319,8 @@
       "links": [
         { "label": "GitHub repository", "href": "https://github.com/MansourDou/StuddyBuddy" }
       ],
-      "featured": false
+      "featured": true,
+      "featuredOrder": 4
     },
     {
       "id": "accel-launcher",
@@ -358,7 +359,7 @@
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1e768-QQSb0Xv7KeCekq8Os64ijGV0Bzn" }
       ],
       "featured": true,
-      "featuredOrder": 4
+      "featuredOrder": 5
     },
     {
       "id": "egg-gang",
@@ -394,7 +395,7 @@
         { "label": "Project files", "href": "https://drive.google.com/drive/folders/1AU0ZtB9WOb-cLBf2XZcf2o2CMr5qqloX" }
       ],
       "featured": true,
-      "featuredOrder": 5
+      "featuredOrder": 6
     }
   ]
 }
